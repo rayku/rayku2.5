@@ -13,6 +13,6 @@ app.
 	  $scope.course = JSON.parse(data.replace(/^while\(1\);/, ''))[0];
 	});
   })
-  .controller('MyCtrl2', [function() {
+  .controller('MyCtrl2', function() {
 
-  }]);
+  });
