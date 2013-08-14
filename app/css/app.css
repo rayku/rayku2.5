@@ -134,7 +134,8 @@ profile wishlist
   font-size: 20px; 
   font-weight: 200;
   border-bottom: 1px dashed rgba(221, 221, 221, 1);
-  padding: 5px;
+  padding: 5px 0;
+  color: rgba(85, 180, 238, 1);
 }
 #profile .profile-container .wishlist h3 a{
   color: rgba(10, 10, 10, 1);
