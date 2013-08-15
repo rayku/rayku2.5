@@ -92,7 +92,9 @@ profile
 #profile .profile-container .profile-image img{
    
 }
-
+#profile .profile-container .profile-details{
+  margin-bottom: 95px;
+}
 #profile .profile-container .profile-details ul{
     padding: 10px;
     padding-bottom: 0;
@@ -130,27 +132,24 @@ profile
 /***********************
 profile wishlist
 ************************/
-#profile .profile-container .wishlist h3{
+#profile .profile-container .wishlist h3, #profile .profile-container .exerciselist h3{
   font-size: 20px; 
   font-weight: 200;
   border-bottom: 1px dashed rgba(221, 221, 221, 1);
   padding: 5px 0;
   color: rgba(85, 180, 238, 1);
 }
-#profile .profile-container .wishlist h3 a{
+#profile .profile-container .wishlist h3 a, #profile .profile-container .exerciselist h3 a{
   color: rgba(10, 10, 10, 1);
 }
-#profile .profile-container .wishlist ul{
+#profile .profile-container .wishlist ul, #profile .profile-container .exerciselist ul{
   list-style: none;
 }
-#profile .profile-container .wishlist ul li img{
-  width: 20%;
-}
-#profile .profile-container .wishlist ul li a{
+#profile .profile-container .wishlist ul li a, #profile .profile-container .exerciselist ul li a{
   font-size: 14px;
   color: rgba(10, 10, 10, 0.6);
 }
-#profile .profile-container .wishlist ul li a:hover{
+#profile .profile-container .wishlist ul li a:hover, #profile .profile-container .exerciselist ul li a:hover{
   text-decoration: underline;
 }
 /***********************
@@ -200,12 +199,15 @@ profile calendar
 }
 
 /***********************
-profile user-about
+profile user-about/exercise-video
 ************************/
-#profile .profile-container .user-about{
+.user-about{
   margin-top: 25px;
 }
-#profile .profile-container .user-about h3{
+.user-about.checklist{
+  margin-top: -15px;
+}
+.user-about h3, .exercise-video h3{
   color: rgba(85, 180, 238, 1);
   font-size: 20px; 
     font-weight: 200;
@@ -213,53 +215,69 @@ profile user-about
     margin-bottom: 0;
     border-bottom: 1px dashed rgba(221, 221, 221, 1);
 }
-#profile .profile-container .user-about h4{
+.user-about h4, .exercise-video h4{
     color: rgba(10, 10, 10, 0.6);
     font-size: 16px; 
     font-weight: 200;
     font-style: italic;
 }
-#profile .profile-container .user-about ul{
+.user-about ul, .exercise-video ul{
   list-style: none;
   padding: 0;
   margin-left: 0;
 }
-#profile .profile-container .user-about ul.course-outline > li{
+.user-about ul.course-outline > li, .exercise-video ul.course-outline > li{
   border-bottom: 1px solid rgba(10, 10, 10, 0.1);
   padding:10px 10px;
   padding-bottom: 30px;
 }
-#profile .profile-container .user-about ul.course-outline.chapter > li:hover{
+.exercise-video ul.course-outline > li:last-child{
+  padding: 0;
+}
+.user-about ul.course-outline.chapter > li:hover, .exercise-video ul.course-outline.chapter > li:hover{
   background: rgba(221, 221, 221, 0.2);
 }
-#profile .profile-container .user-about ul.course-outline > li a{
+.user-about ul.course-outline > li a, .exercise-video ul.course-outline > li a{
   color: rgba(10, 10, 10, 0.6);
 }
-#profile .profile-container .user-about ul.course-exercise li{
+.user-about ul.course-exercise li, .exercise-video ul.course-exercise li{
   font-size: 14px;
   float: left;
   display: block;
   width: 25%;
 }
-#profile .profile-container .user-about ul.course-tutoring{
+.user-about ul.course-tutoring, .user-about ul.course-checklist{
   width: 100%;
+  padding: 0;
+  margin-left: -10px;
 }
-#profile .profile-container .user-about ul.course-tutoring li{
+.user-about ul.course-tutoring li{
   font-size: 14px;
   float: left;
   display: block;
   width: 25%;
 }
-#profile .profile-container .user-about ul.course-tutoring li a{
+.user-about ul.course-checklist li{
+  
+   font-size: 14px;
+  float: left;
+  display: block;
+  width: 20%;
+}
+.user-about ul.course-tutoring li a{
   text-decoration: underline;
 }
-#profile .profile-container .user-about ul.course-tutoring li:first-child{
+.user-about ul.course-tutoring li:first-child{
   width: 50%;
 }
-
-#profile .profile-container .user-about p{
+.user-about p{
   font-size: 13px;
 }
+
+.active{
+  background: rgba(221, 221, 221, 0.2);
+}
+
 #profile-footer{
   position: relative;
   top:70px;
@@ -277,6 +295,33 @@ profile user-about
   text-decoration: underline;
 }
 
+ul#nav{
+  position: absolute;
+  width: 165px;
+  z-index: 2;
+  list-style: none;
+}
+
+ul#nav a img{
+  width: 40px;
+}
+ul#submenu{
+  list-style-type: none;
+  box-shadow: 0 0 8px rgba(10, 10, 10, 0.2);
+  padding:3px 0px;
+  margin-left: 0;
+  width: 165px;
+}
+ul.submenu-item li{
+  width: 100%;
+  padding:5px 5px;
+  margin:0;
+}
+
+#lesson-video iframe{
+  width: 100%;
+  height: 500px;
+}
 .menu {
   list-style: none;
   border-bottom: 0.1em solid black;
@@ -305,3 +350,6 @@ profile user-about
   content: "";
   padding: 0;
 }
+
+
+

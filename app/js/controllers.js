@@ -15,4 +15,7 @@ app.
   })
   .controller('MyCtrl2', function() {
 
+  })
+  .controller('MyLessons', function() {
+
   });
