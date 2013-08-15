@@ -36,9 +36,9 @@
                 <div class="large-3 columns profile-image">
                     <img src="img/myimage.jpg" alt="">
                 </div>
-                <div class="large-9 columns profile-details">
+                <div class="large-9 columns profile-details" ng-controller="ProfileCtrl">
                     <ul>
-                        <li class="vestee-name"><span>Sam Peter Jnr.<a href=# data-reveal-id="donateModal" class="blue-button">Donate</a></span></li>
+                        <li class="vestee-name"><span ng-cloak>{{ user.name }}</span></li>
                         <li class="university"><i class="icon-book"></i> <span>University of Toronto</span></li>
                         <li class="degree"><i class="icon-beaker"></i> Computer Science</li>
                         <li class="year"><i class="icon-calendar"></i> 3rd Year</li>
