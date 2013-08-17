@@ -1,0 +1,195 @@
+/***********************
+profile calendar
+************************/
+/* app css stylesheet */
+.calendar-row{
+  padding: 0 15px;
+}
+.calendar{
+  padding: 0;
+  margin:0;
+}
+.calendar h3{
+  background:rgb(240,246,250);
+  color: rgba(10, 10, 10, 0.6);
+  font-size: 20px; 
+  font-weight: 200;
+  padding: 10px;
+  margin-bottom: 0;
+  border-bottom: 1px solid rgba(221, 221, 221, 1);
+}
+.calendar ul{
+  list-style: none;
+}
+.calendar ul li{
+  float: left;
+  display: block;
+  width: 8.33%;
+  background: rgba(255, 255, 255, 1);
+}
+.calendar ul li:hover{
+  background: rgba(221, 221, 221, 0.2);
+}
+.calendar ul li a{
+  display: block;
+  text-align: center;
+  padding: 10px 0;
+
+}
+.calendar ul li.first-4 a{
+  color: rgba(229,115,8,1);
+  border-bottom: 2px solid rgba(229,115,8,1);
+}
+.calendar ul li.second-4 a{
+  color: rgba(11,114,195,1);
+  border-bottom: 2px solid rgba(11,114,195,1);
+}
+.calendar ul li.third-4 a{
+  color: rgba(10,10,10,0.4);
+  border-bottom: 2px solid rgba(10,10,10,0.4);
+}
+.calendar ul li.third-4.active a{
+  color: rgba(90,154,0,1);
+  border-bottom: 2px solid rgba(90,154,0,1);
+}
+
+/***********************
+profile courses
+************************/
+.courses{
+  padding: 0;
+  margin:0;
+}
+.courses h3{
+  background:rgb(240,246,250);
+  color: rgba(10, 10, 10, 0.6);
+  font-size: 20px; 
+  font-weight: 200;
+  padding: 10px;
+  margin-bottom: 0;
+  border-bottom: 1px solid rgba(221, 221, 221, 1);
+}
+.courses ul{
+  list-style: none;
+}
+.courses ul li{
+  display: block;
+  background: rgba(255, 255, 255, 1);
+  border-bottom: 1px solid rgba(221, 221, 221, 0.8);
+}
+.courses ul li a{
+  display: block;
+  padding:10px 15px;
+}
+.courses ul li:hover{
+  background: rgba(250, 250, 250, 1);
+}
+
+/***********************
+profile chapter summary
+************************/
+.chapter-row{
+  position: relative;
+  top:10px;
+  padding: 0 15px;
+}
+.chapter-summary{
+  padding: 0;
+  padding-right: 20px;
+  margin:0;
+}
+.chapter-summary h3{
+  background:rgb(240,246,250);
+  color: rgba(10, 10, 10, 0.6);
+  font-size: 20px; 
+  font-weight: 200;
+  padding: 10px;
+  margin-bottom: 0;
+  border-bottom: 1px solid rgba(221, 221, 221, 1);
+}
+.chapter-summary ul{
+  list-style: none;
+}
+.chapter-summary ul.chapter > li{
+  background: rgba(255, 255, 255, 1);
+  border-bottom: 1px solid rgba(221, 221, 221, 0.8);
+  padding:10px 10px;
+  padding-bottom: 32px;
+}
+.chapter-summary ul.chapter > li:hover{
+  background: rgba(250, 250, 250, 1);
+}
+.chapter-summary ul.course-exercise li{
+  font-size: 14px;
+  float: left;
+  display: block;
+  width: 25%;
+}
+
+
+/***********************
+profile program tutoring
+************************/
+.program-row{
+  position: relative;
+  top:10px;
+  padding:0 15px; 
+}
+.program-tutoring{
+  padding: 0;
+  padding-right: 20px;
+  margin:0;
+}
+.program-tutoring h3{
+  background:rgb(240,246,250);
+  color: rgba(10, 10, 10, 0.6);
+  font-size: 20px; 
+  font-weight: 200;
+  padding: 10px;
+  margin-top: 0;
+  margin-bottom: 0;
+  border-bottom: 1px solid rgba(221, 221, 221, 1);
+}
+.program-tutoring ul{
+  list-style: none;
+}
+.program-tutoring ul.program > li{
+  background: rgba(255, 255, 255, 1);
+  border-bottom: 1px solid rgba(10, 10, 10, 0.1);
+  padding:10px 10px;
+  padding-bottom: 30px;
+}
+.program-tutoring ul.course-tutoring li{
+  font-size: 14px;
+  float: left;
+  display: block;
+  width: 25%;
+}
+.program-tutoring ul.course-tutoring li:first-child{
+  width:50%;
+}
+/***********************
+profile program principal/tutor
+************************/
+.program-principal, .program-tutor{
+  padding: 0;
+  margin: 0;
+  background: rgba(255, 255, 255, 1);
+}
+.program-tutor{
+  position: relative;
+  top: 10px;
+}
+.program-principal ul, .program-tutor ul{
+  list-style: none;
+  padding-top: 10px;
+  margin-left: -15px;
+}
+.program-principal ul li, .program-tutor ul li{
+  padding: 0;
+}
+.program-principal ul li a, .program-tutor ul li a{
+  color: rgba(10, 10, 10, 0.6);
+  font-size: 16px;
+  font-weight: 500px;
+}
