@@ -55,6 +55,7 @@ app
       });
     });
   })
-  .controller('CourseCtrl', function($http, $scope, userProvider) {
+  .controller('ModuleCtrl', function($http, $scope, userProvider) {
     userProvider.getUser().then(function(user){
+    })
   });
