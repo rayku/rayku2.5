@@ -17,6 +17,7 @@ var app = angular.module('myApp', []).config(['$httpProvider' , '$routeProvider'
   $routeProvider
     .when('/course/:courseId' , { controller: 'CourseCtrl' })
     .when('/course/:courseId/module/:moduleId/content/:content', { controller: 'CourseContentCtrl' })
+    .when('/lesson/', {templateUrl: '../partials/lesson.html', controller: 'LessonViewCtrl'})
 }]);
 // http interceptor to remove jsonp hijacking and parse json responses appropriately
 app.factory('httpInterceptor', function($q){
@@ -57,18 +58,22 @@ app.factory('userProvider', function($q, $http){
   };
 });
 
-app
-  .controller('ProfileCtrl', function($http, $scope, userProvider){
-    userProvider.getUser().then(function(user){
-      $http.get('https://canvas.rayku.com/api/v1/users/'+user.user_id+'/profile').success(function(data){
-        $scope.user = data;
-      });
+app.controller('ProfileCtrl', function($http, $scope, userProvider){
+  userProvider.getUser().then(function(user){
+    $http.get('https://canvas.rayku.com/api/v1/users/'+user.user_id+'/profile').success(function(data){
+      $scope.user = data;
     });
-  })
-  .controller('CourseContentCtrl', function($http, $scope, userProvider, $routeParams){
-	userProvider.getUser().then(function(user){
-	  $http.get('https://canvas.rayku.com/v1/courses/'+$routeParams.courseId+'/pages/'+$routeParams.content).then(function(data){
-		
-	  })
-	})
   });
+}).controller('CourseContentCtrl', function($http, $scope, userProvider, $routeParams){
+	  userProvider.getUser().then(function(user){
+	    $http.get('https://canvas.rayku.com/v1/courses/'+$routeParams.courseId+'/pages/'+$routeParams.content).then(function(data){
+		
+	     })
+	  })
+}).controller('LessonViewCtrl', function($http, $scope){
+  userProvider.getUser().then(function(user){
+    $http.get('https://canvas.rayku.com/api/v1/courses/1/pages/module-1-lesson-1').success(function(data){
+
+    })
+  })
+});
