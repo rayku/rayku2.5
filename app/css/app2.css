@@ -125,8 +125,17 @@ profile chapter summary
   display: block;
   width: 25%;
 }
-
-
+/***********************
+Lesson view
+************************/
+.chapter-summary .lesson-video{
+  background: rgba(255, 255, 255, 1);
+  width: 100%;
+}
+.chapter-summary .lesson-video iframe{
+  width: 100%;
+  height: 500px;
+}
 /***********************
 profile program tutoring
 ************************/

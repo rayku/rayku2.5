@@ -64,6 +64,11 @@ app
    userProvider.getUser().then(function(user){
     $http.get('https://canvas.rayku.com/api/v1/courses/1/pages/module-1-lesson-1').success(function(data){
       console.log(data);
+      var text = data.body.match(/<a[^\b>]+>(.+)[\<]\/a>/)[1];
+      console.log(text);
+      var videoId = text.split("=")[1];
+      console.log(videoId);
+      $scope.video = videoId;
       $scope.lesson = data;
     })
   })
