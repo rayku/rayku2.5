@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="utf-8">
+    <title>My AngularJS App</title>
+   <!-- Included CSS Files -->
+    <link href='//fonts.googleapis.com/css?family=Italianno' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Dr+Sugiyama' rel='stylesheet' type='text/css'>
+    <link href="foundation/css/foundation.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="css/app.css"/>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header id="header">
+            <div class="row">
+                <div class="large-3 columns logo">
+                    <h3>Rayku</h3>
+                </div>
+                <div class="large-4 columns navigation">
+                    <ul>
+                        <li><a href="../vestee/">Home</a></li>
+                        <li><a href="../vestor">Lessons</a></li>
+                    </ul>
+                </div>
+                <div class="large-4 large-offset-2 columns button-hold search">
+                    
+                </div>
+            </div>
+        </header>
+
+        <section id="profile">
+            <div class="row profile-container">
+                <div class="large-3 columns profile-image">
+                    <img src="img/myimage.jpg" alt="">
+                </div>
+
+                <div class="large-9 columns profile-details" ng-controller="ProfileCtrl">
+                    <ul>
+                        <li class="vestee-name"><span ng-cloak>{{ user.name }}</span></li>
+                        <li class="university"><i class="icon-book"></i> <span>University of Toronto</span></li>
+                        <li class="degree"><i class="icon-beaker"></i> Computer Science</li>
+                        <li class="year"><i class="icon-calendar"></i> 3rd Year</li>
+                    </ul>
+                </div>
+
+                <div class="large-3 columns wishlist">
+                    <h3><i class="icon-folder-open"></i> Sam's Course</h3>
+                    <ul>
+                        <li><a href=# >Chapter 1: <span>Algebra</span></a></li>
+                        <li><a href=# >Chapter 2: <span>Advanced Algebra</span></a></li>
+                        <li><a href=# >Chapter 3: <span>Sum of Vectors</span></a></li>
+                        <li><a href=# >Chapter 4: <span>Advanced Vectors</span></a></li>
+                        <li><a href=# >Chapter 5: <span>Calculus</span></a></li>
+                        <li><a href=# >Chapter 6: <span>Advanced Calculus</span></a></li>
+                        <li><a href=# >Chapter 7: <span>Geometry</span></a></li>
+                    </ul>
+                </div>
+                <div class="large-9 columns calendar">
+                    <h3><i class="icon-calendar-empty"></i> Live Progress</h3>
+                    <ul>
+                        <li class="first-4"><a href=#>26</a></li>
+                        <li class="first-4"><a href=#>27</a></li>
+                        <li class="first-4"><a href=#>28</a></li>
+                        <li class="first-4"><a href=#>29</a></li> 
+                        <li class="second-4"><a href=#>30</a></li>
+                        <li class="second-4"><a href=#>31</a></li>
+                        <li class="second-4"><a href=#>01</a></li>
+                        <li class="second-4"><a href=#>02</a></li>
+                        <li class="third-4 active"><a href=#>03</a></li>
+                        <li class="third-4"><a href=#>04</a></li>
+                        <li class="third-4"><a href=#>05</a></li>
+                        <li class="third-4"><a href=#>06</a></li>
+                    </ul>
+                </div>
+                <div class="large-9 columns user-about" ng-controller="CourseCtrl">
+                    <h3><i class="icon-bookmark"></i> Chapter 3: <span>Sum of Vectors</span></h3>
+                    <ul class="course-outline chapter">
+                        <li>
+                            <a href=#>
+                                <ul class="course-exercise">
+                                <li>Sum of Vectors</li>
+                                <li>3rd of Aug</li>
+                                <li>Done</li>
+                                <li>*****</li>
+                            </ul>
+                            </a>
+                        </li>
+                        <li>
+                            <a href=#>
+                                <ul class="course-exercise">
+                                <li>Sum of Vectors</li>
+                                <li>3rd of Aug</li>
+                                <li>Done</li>
+                                <li>*****</li>
+                            </ul>
+                            </a>
+                        </li>
+                        <li>
+                            <a href=#>
+                                <ul class="course-exercise">
+                                <li>Sum of Vectors</li>
+                                <li>3rd of Aug</li>
+                                <li>Done</li>
+                                <li>*****</li>
+                            </ul>
+                            </a>
+                        </li>
+                        <li>
+                            <a href=#>
+                                <ul class="course-exercise">
+                                <li>Sum of Vectors</li>
+                                <li>3rd of Aug</li>
+                                <li>Done</li>
+                                <li>*****</li>
+                            </ul>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="large-9 large-offset-3 columns user-about">
+                    <h3><i class="icon-user"></i> Program Tutoring</h3>
+                    <ul class="course-outline">
+                        <li>
+                            <ul class="course-tutoring">
+                                <li>Tutoring Session with <a href=#>Sarah Miller</a></li>
+                                <li>August 5th at 6:30pm</li>
+                                <li><a href=#>Join Live</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <ul class="course-tutoring">
+                                <li>Tutoring Session with <a href=#>Sarah Miller</a></li>
+                                <li>August 5th at 6:30pm</li>
+                                <li><a href=#>Join Live</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <ul class="course-tutoring">
+                                <li>Tutoring Session with <a href=#>Sarah Miller</a></li>
+                                <li>August 5th at 6:30pm</li>
+                                <li><a href=#>Join Live</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <ul class="course-tutoring">
+                                <li>Tutoring Session with <a href=#>Sarah Miller</a></li>
+                                <li>August 5th at 6:30pm</li>
+                                <li><a href=#>Join Live</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+        </section>
+    </div>
+
+    <footer id="profile-footer">
+        <div class="row">
+            <div class="large-12 columns">
+                <p>Copyright © 2013 Rayku Corp. <a href=#>Privacy Policy</a> and <a href=#>Terms of Service</a>.</p>
+            </div>
+        </div>
+    </footer>
+    
+
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/services.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/filters.js"></script>
+    <script src="js/directives.js"></script>
+
+    <script>
+    document.write('<script src=' +
+    ('__proto__' in {} ? 'foundation/js/vendor/zepto' : 'foundation/js/vendor/jquery') +
+    '.js><\/script>')
+    </script>
+
+    <script src="foundation/js/foundation/foundation.js"></script>
+    <script src="foundation/js/foundation/foundation.alerts.js"></script>
+    <script src="foundation/js/foundation/foundation.clearing.js"></script>
+    <script src="foundation/js/foundation/foundation.cookie.js"></script>
+    <script src="foundation/js/foundation/foundation.dropdown.js"></script>
+    <script src="foundation/js/foundation/foundation.forms.js"></script>
+    <script src="foundation/js/foundation/foundation.joyride.js"></script>
+    <script src="foundation/js/foundation/foundation.magellan.js"></script>
+    <script src="foundation/js/foundation/foundation.orbit.js"></script>
+    <script src="foundation/js/foundation/foundation.placeholder.js"></script>
+    <script src="foundation/js/foundation/foundation.reveal.js"></script>
+    <script src="foundation/js/foundation/foundation.section.js"></script>
+    <script src="foundation/js/foundation/foundation.tooltips.js"></script>
+    <script src="foundation/js/foundation/foundation.topbar.js"></script>
+    <script>
+        $(document).foundation();
+    </script>
+</body>
+</html>
+
+
