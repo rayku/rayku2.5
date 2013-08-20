@@ -1,7 +1,5 @@
 'use strict';
 
-/* Controllers */
-
 /**
  * https://canvas.rayku.com/api/v1/courses/ - get my courses
  * https://canvas.rayku.com/api/v1/courses/1/modules/ - get the modules for A course
@@ -9,35 +7,39 @@
  * https://canvas.rayku.com/api/v1/courses/1/pages/module-1-lesson-1 - get the page
  */
 
+
+
 var app = angular.module('myApp', []).config(['$httpProvider' , '$routeProvider', function($httpProvider, $routeProvider) {
   delete $httpProvider.defaults.headers.common["X-Requested-With"];
   $httpProvider.defaults.withCredentials = true;
   $httpProvider.interceptors.push('httpInterceptor');
   
-  $routeProvider
-    .when('/course/:courseId' , { controller: 'CourseCtrl' })
-    .when('/course/:courseId/module/:moduleId/content/:content', { controller: 'CourseContentCtrl' })
+  $routeProvider.when('/course', {templateUrl: 'partials/course.html', controller: 'CourseContentCtrl'});
+  $routeProvider.when('/view2', {templateUrl: 'partials/partial2.html', controller: 'MyCtrl2'});
+  $routeProvider.otherwise({redirectTo: '/course'});
 }]);
 
-// http interceptor to remove jsonp hijacking and parse json responses appropriately
+
+
 app.factory('httpInterceptor', function($q){
   return{
     response: function(response){
-      // parse out the jsonp anti hijacking while
       var re = /^while\(1\);/;
       if(re.test(response.data)){
         response.data = response.data.replace(re, '');
       }
-      // if the response is json parse it as such
       if(response.config.headers['Accept'] === 'application/json, text/plain, */*'){
-    	response.data = JSON.parse(response.data);  
+    	try{
+      	  response.data = JSON.parse(response.data);
+    	}catch(e){
+    	  response.data = response.data;
+    	}
       }
       return response;
     }
   }
 });
 
-// user provider that returns a promise to ensure we have the user from the server
 app.factory('userProvider', function($q, $http){
   var user;
   var getUser = function() {
@@ -59,6 +61,9 @@ app.factory('userProvider', function($q, $http){
 });
 
 app
+  .controller('LessonViewCtrl', function($http, $scope, userProvider, $routeParams){
+	 console.log('hello world'); 
+  })
   .controller('ProfileCtrl', function($http, $scope, userProvider){
     userProvider.getUser().then(function(user){
       $http.get('https://canvas.rayku.com/api/v1/users/'+user.user_id+'/profile').success(function(data){
