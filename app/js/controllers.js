@@ -15,7 +15,7 @@ var app = angular.module('myApp', []).config(['$httpProvider' , '$routeProvider'
   $httpProvider.interceptors.push('httpInterceptor');
   
   $routeProvider.when('/course', {templateUrl: 'partials/course.html', controller: 'CourseContentCtrl'});
-  $routeProvider.when('/view2', {templateUrl: 'partials/partial2.html', controller: 'MyCtrl2'});
+  $routeProvider.when('/lesson', {templateUrl: 'partials/lesson.html', controller: 'LessonViewCtrl'});
   $routeProvider.otherwise({redirectTo: '/course'});
 }]);
 
@@ -61,8 +61,13 @@ app.factory('userProvider', function($q, $http){
 app
   .controller('LessonViewCtrl', function($http, $scope, userProvider, $routeParams){
 	 console.log('hello world'); 
+   userProvider.getUser().then(function(user){
+    $http.get('https://canvas.rayku.com/api/v1/courses/1/pages/module-1-lesson-1').success(function(data){
+      console.log(data);
+      $scope.lesson = data;
+    })
   })
-  .controller('ProfileCtrl', function($http, $scope, userProvider){
+}).controller('ProfileCtrl', function($http, $scope, userProvider){
     userProvider.getUser().then(function(user){
       $http.get('https://canvas.rayku.com/api/v1/users/'+user.user_id+'/profile').success(function(data){
         $scope.user = data;

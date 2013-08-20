@@ -593,6 +593,7 @@ ul.submenu-item li span.nav-desc{
 }
 #content-body .content-header h3{
 	padding: 5px 25px;
+	padding-left: 0;
 	padding-bottom: 0px;
 	color: rgba(100, 100, 100, 1);
 	font-family: "HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue", Helvetica, Arial, sans-serif;
