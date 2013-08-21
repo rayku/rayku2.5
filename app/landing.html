@@ -256,25 +256,34 @@
 	</div>
 	<div class="row register-body">
 		<div class="large-12 columns">
-			<form class="custom">
+			<form class="custom" method="post" action="mail.php">
 				<div class="row">
-					<label>Name</label>
-					<input type="text">
+					<label>Name*</label>
+					<input type="text" name="name">
 				</div>
 				<div class="row">
-					<label>Email</label>
-					<input type="text">
+					<label>Email*</label>
+					<input type="text" name="email">
 				</div>
 				<div class="row">	
-					<label>Password</label>
-					<input type="password">
+					<label>Message*</label>
+					<textarea name="message" maxlength="2000"></textarea>
 				</div>
-				<div class="row">	
-					<label>Confirm Password</label>
-					<input type="password">
-				</div>
+				<div class="row user-choice">
+			      	<label for="radio1"><input name="student" type="radio" id="radio1" style="display:none;" CHECKED><span class="custom radio checked"></span> Student</label>
+			     	<label for="radio1"><input name="parent" type="radio" id="radio1" style="display:none;"><span class="custom radio"></span> Parent</label>
+			    </div>
 				<div class="row register-area">
-					<a href="profile" class="signup-button" data-reveal-id="registerModal">Register</a>
+					<style>
+					input[type="submit"]{
+						outline: :none;
+						border:none;
+						padding: 10px;
+						border-bottom: 2px solid rgba(61, 152, 225,1); 
+						border-radius: 3px;
+					}
+					</style>
+					<input type="submit" class="signup-button">
 					<p>Have an account? <a href="" data-reveal-id="loginModal">Login</a></p>
 				</div>
 			</form>
