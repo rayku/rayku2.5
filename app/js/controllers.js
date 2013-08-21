@@ -14,9 +14,10 @@ var app = angular.module('myApp', []).config(['$httpProvider' , '$routeProvider'
   $httpProvider.defaults.withCredentials = true;
   $httpProvider.interceptors.push('httpInterceptor');
   
-  $routeProvider.when('/course', {templateUrl: 'partials/course.html', controller: 'CourseContentCtrl'});
+  $routeProvider.when('/course/:courseId', {templateUrl: 'partials/course.html'});
+  $routeProvider.when('/course/:courseId/unit/:moduleId', {templateUrl: 'partials/course.html', controller: 'UnitViewCtrl'});
   $routeProvider.when('/lesson', {templateUrl: 'partials/lesson.html', controller: 'LessonViewCtrl'});
-  $routeProvider.otherwise({redirectTo: '/course'});
+  //$routeProvider.otherwise({redirectTo: '/course'});
 }]);
 
 app.factory('httpInterceptor', function($q){
@@ -79,10 +80,26 @@ app
         $scope.user = data;
       })
     })
-}).controller('CourseContentCtrl', function($http, $scope, userProvider, $routeParams){
-	  userProvider.getUser().then(function(user){
-	    $http.get('https://canvas.rayku.com/v1/courses/'+$routeParams.courseId+'/pages/'+$routeParams.content).then(function(data){
-		
-	     })
-	  })
-	});
+}).controller('CourseViewCtrl', function($http, $scope, userProvider, $routeParams, $location){
+  userProvider.getUser().then(function(user){
+    $http.get('https://canvas.rayku.com/api/v1/courses/'+$routeParams.courseId).success(function(data){
+      $scope.course = data;
+    });
+    $http.get('https://canvas.rayku.com/api/v1/courses/'+$routeParams.courseId+'/modules').success(function(data){
+      for(var i = 0; i < data.length; i++){
+    	if(data[i].state == "started"){
+    	  $scope.unit = data[i];
+    	  $location.path('/course/'+$routeParams.courseId+'/unit/'+data[i].id);
+    	  break;
+    	}
+      }
+    })
+  })
+}).controller('UnitViewCtrl', function($http, $scope, userProvider, $routeParams){
+  userProvider.getUser().then(function(user){
+    $http.get('https://canvas.rayku.com/api/v1/courses/'+$routeParams.courseId+'/modules/'+$routeParams.moduleId+'/items').success(function(data){
+	  $scope.chapters = data;
+	  console.log(data);
+	})
+  })
+});
