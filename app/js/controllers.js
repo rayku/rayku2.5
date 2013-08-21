@@ -16,8 +16,8 @@ var app = angular.module('myApp', []).config(['$httpProvider' , '$routeProvider'
   
   $routeProvider.when('/course/:courseId', {templateUrl: 'partials/course.html'});
   $routeProvider.when('/course/:courseId/unit/:moduleId', {templateUrl: 'partials/course.html', controller: 'UnitViewCtrl'});
-  $routeProvider.when('/lesson', {templateUrl: 'partials/lesson.html', controller: 'LessonViewCtrl'});
-  //$routeProvider.otherwise({redirectTo: '/course'});
+  $routeProvider.when('/course/:courseId/lesson/:moduleId', {templateUrl: 'partials/lesson.html', controller: 'LessonViewCtrl'});
+  $routeProvider.otherwise({redirectTo: '/course'});
 }]);
 
 app.factory('httpInterceptor', function($q){
