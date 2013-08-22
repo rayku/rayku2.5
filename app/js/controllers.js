@@ -63,8 +63,10 @@ app.controller('LessonViewCtrl', function($http, $scope, userProvider, $routePar
   userProvider.getUser().then(function(user){
     $http.get('https://canvas.rayku.com/api/v1/courses/1/pages/'+$routeParams.moduleId).success(function(data){
       data.body = JSON.parse(data.body.match(/<p>(.*?)<\/p>/)[1]);
+      console.log(data);
       //set lesson to data returned
       $scope.lesson_video = data.body.lesson_video;
+      $scope.lesson_assignment_file = data.body.assignment_file_url;
     })
   })
 }).controller('ProfileCtrl', function($http, $scope, userProvider){
