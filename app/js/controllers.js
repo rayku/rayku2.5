@@ -65,8 +65,20 @@ app.controller('LessonViewCtrl', function($http, $scope, userProvider, $routePar
       data.body = JSON.parse(data.body.match(/<p>(.*?)<\/p>/)[1]);
       console.log(data);
       //set lesson to data returned
-      $scope.lesson_video = data.body.lesson_video;
+      $scope.video = data.body.lesson_video;
       $scope.lesson_assignment_file = data.body.assignment_file_url;
+
+      //Switch to lesson video
+      $scope.lesson = function () {
+        console.log('Lesson was clicked');
+        $scope.video = data.body.lesson_video;
+      }
+
+      //Switch to solution video
+      $scope.solution = function () {
+        console.log('Solution was clicked');
+        $scope.video = data.body.solution_video;
+      }
     })
   })
 }).controller('ProfileCtrl', function($http, $scope, userProvider){
