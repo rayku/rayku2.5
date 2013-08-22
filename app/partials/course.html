@@ -53,16 +53,10 @@
             </ul>
         </div>
 
-        <div class="large-3 columns courses">
-            <h3><i class="icon-folder-open"></i> Sam's Course</h3>
+        <div class="large-3 columns courses" ng-cloak>
+            <h3><i class="icon-folder-open"> </i>{{ course.name }}</h3>
             <ul>
-                <li><a href=# >Chapter 1: <span>Algebra</span></a></li>
-                <li><a href=# >Chapter 2: <span>Advanced Algebra</span></a></li>
-                <li><a href=# >Chapter 3: <span>Sum of Vectors</span></a></li>
-                <li><a href=# >Chapter 4: <span>Advanced Vectors</span></a></li>
-                <li><a href=# >Chapter 5: <span>Calculus</span></a></li>
-                <li><a href=# >Chapter 6: <span>Advanced Calculus</span></a></li>
-                <li><a href=# >Chapter 7: <span>Geometry</span></a></li>
+                <li ng-repeat="module in modules"><a href="/course/{{ course.id }}/unit/{{ module.id}}" >Chapter {{ $index+1 }}: <span>{{ module.name}}</span></a></li>
             </ul>
         </div>
     </div>

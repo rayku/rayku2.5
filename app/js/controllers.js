@@ -68,18 +68,18 @@ app.controller('LessonViewCtrl', function($http, $scope, userProvider, $routePar
     })
   })
 }).controller('ProfileCtrl', function($http, $scope, userProvider){
-    userProvider.getUser().then(function(user){
-      $http.get('https://canvas.rayku.com/api/v1/users/'+user.user_id+'/profile').success(function(data){
-        $scope.user = data;
-      })
+  userProvider.getUser().then(function(user){
+    $http.get('https://canvas.rayku.com/api/v1/users/'+user.user_id+'/profile').success(function(data){
+      $scope.user = data;
     })
+  })
 }).controller('CourseViewCtrl', function($http, $scope, userProvider, $routeParams, $location){
   userProvider.getUser().then(function(user){
     $http.get('https://canvas.rayku.com/api/v1/courses/'+$routeParams.courseId).success(function(data){
       $scope.course = data;
     });
     $http.get('https://canvas.rayku.com/api/v1/courses/'+$routeParams.courseId+'/modules').success(function(data){
-      $scope.chapters = data;
+      $scope.modules = data;
       for(var i = 0; i < data.length; i++){
     	if(data[i].state == "started"){
     	  $scope.unit = data[i];
@@ -93,6 +93,7 @@ app.controller('LessonViewCtrl', function($http, $scope, userProvider, $routePar
   userProvider.getUser().then(function(user){
     $http.get('https://canvas.rayku.com/api/v1/courses/'+$routeParams.courseId+'/modules/'+$routeParams.moduleId+'/items').success(function(data){
 	  $scope.chapters = data;
+	  console.log(data);
 	})
   })
 });
