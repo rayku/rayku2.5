@@ -59,19 +59,10 @@ app.factory('userProvider', function($q, $http){
   };
 });
 
-app
-  .controller('LessonViewCtrl', function($http, $scope, userProvider, $routeParams){
-   userProvider.getUser().then(function(user){
+app.controller('LessonViewCtrl', function($http, $scope, userProvider, $routeParams){
+  userProvider.getUser().then(function(user){
     $http.get('https://canvas.rayku.com/api/v1/courses/1/pages/'+$routeParams.moduleId).success(function(data){
       data.body = JSON.parse(data.body.match(/<p>(.*?)<\/p>/)[1]);
-      
-      console.log(data);
-    
-      //Get Video Id from returned string
-      /*var body = data.body.match(/<a[^\b>]+>(.+)[\<]\/a>/)[1];
-      var videoId = body.split("=")[1];
-      $scope.video = videoId;*/
-      
       //set lesson to data returned
       $scope.lesson_video = data.body.lesson_video;
     })
