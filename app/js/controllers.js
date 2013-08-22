@@ -63,8 +63,9 @@ app
   .controller('LessonViewCtrl', function($http, $scope, userProvider, $routeParams){
 	 console.log('hello world'); 
    userProvider.getUser().then(function(user){
-    $http.get('https://canvas.rayku.com/api/v1/courses/1/pages/module-1-lesson-1').success(function(data){
+    $http.get('https://canvas.rayku.com/api/v1/courses/1/pages/'+$routeParams.moduleId).success(function(data){
       console.log(data);
+
       //Get Video Id from returned string
       var body = data.body.match(/<a[^\b>]+>(.+)[\<]\/a>/)[1];
       var videoId = body.split("=")[1];
