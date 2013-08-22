@@ -26,8 +26,19 @@
         <div class="large-9 columns chapter-summary">
             <h3 ng-cloak><i class="icon-bookmark"></i> {{ unit.name }}</h3>
             <ul class="course-outline chapter">
-                <li ng-repeat="chapter in chapters">
-                    <a href="#/course/{{ course.id}}/lesson/{{chapter.page_url}}">
+                <li ng-repeat="chapter in chapters" ng-show="chapter.indent == 0">
+                    <a href="#/course/{{ course.id}}/lesson/{{chapter.page_url}}" ng-show="!chapter.locked_for_user">
+                        <ul class="course-exercise">
+                        <li>{{ chapter.title}}</li>
+                        <li>3rd of Aug</li>
+                        <li>
+                            <span ng-show="chapter.completion_requirement.completed">Done</span>
+                            <span ng-show="!chapter.completion_requirement.completed">Pending</span>
+                        </li>
+                        <li></li>
+                    </ul>
+                    </a>
+                    <a ng-show="chapter.locked_for_user">
                         <ul class="course-exercise">
                         <li>{{ chapter.title}}</li>
                         <li>3rd of Aug</li>

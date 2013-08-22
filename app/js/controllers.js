@@ -61,18 +61,19 @@ app.factory('userProvider', function($q, $http){
 
 app
   .controller('LessonViewCtrl', function($http, $scope, userProvider, $routeParams){
-	 console.log('hello world'); 
    userProvider.getUser().then(function(user){
     $http.get('https://canvas.rayku.com/api/v1/courses/1/pages/'+$routeParams.moduleId).success(function(data){
+      data.body = JSON.parse(data.body.match(/<p>(.*?)<\/p>/)[1]);
+      
       console.log(data);
-
+    
       //Get Video Id from returned string
-      var body = data.body.match(/<a[^\b>]+>(.+)[\<]\/a>/)[1];
+      /*var body = data.body.match(/<a[^\b>]+>(.+)[\<]\/a>/)[1];
       var videoId = body.split("=")[1];
-      $scope.video = videoId;
+      $scope.video = videoId;*/
       
       //set lesson to data returned
-      $scope.lesson = data;
+      $scope.lesson_video = data.body.lesson_video;
     })
   })
 }).controller('ProfileCtrl', function($http, $scope, userProvider){
@@ -87,6 +88,7 @@ app
       $scope.course = data;
     });
     $http.get('https://canvas.rayku.com/api/v1/courses/'+$routeParams.courseId+'/modules').success(function(data){
+      $scope.chapters = data;
       for(var i = 0; i < data.length; i++){
     	if(data[i].state == "started"){
     	  $scope.unit = data[i];
@@ -100,7 +102,6 @@ app
   userProvider.getUser().then(function(user){
     $http.get('https://canvas.rayku.com/api/v1/courses/'+$routeParams.courseId+'/modules/'+$routeParams.moduleId+'/items').success(function(data){
 	  $scope.chapters = data;
-	  console.log(data);
 	})
   })
 });
