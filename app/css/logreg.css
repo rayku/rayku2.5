@@ -1,0 +1,21 @@
+input[type="submit"]{
+  outline: none;
+  border:none;
+}
+input[type="submit"]:hover{
+  cursor: pointer;
+}
+input[type="submit"].red-button{
+  background: rgba(243, 107, 107, 1);
+  color: rgba(255, 255, 255, 1);
+  padding: 12px;
+  border-bottom: 2px solid rgba(195,88,65,1);
+  border-radius: 3px;
+}
+input[type="submit"].blue-button{
+  background: rgba(85, 180, 238, 1); 
+  color: rgba(255, 255, 255, 1);
+  padding: 12px;
+  border-bottom: 2px solid rgba(61, 152, 225,1); 
+  border-radius: 3px;
+}
