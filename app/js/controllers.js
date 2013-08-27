@@ -40,12 +40,16 @@ app.factory('httpInterceptor', function($q){
   }
 });
 
-app.factory('userProvider', function($q, $http){
+app.factory('userProvider', function($q, $http, $location){
   var user;
   var getUser = function() {
 	var deferred = $q.defer();
 	if(!user){
-      $http.get('https://canvas.rayku.com/api/v1/accounts/1/logins', {cache:true}).then(function(Obj){
+      $http.get('https://canvas.rayku.com/api/v1/accounts/1/logins', {cache:true}).error(function(Obj){
+        if(Obj.status == "unauthenticated"){
+          window.location = "logreg.html";
+        }
+      }).then(function(Obj){
 	    user = Obj.data[0];
         deferred.resolve(user);
       });
