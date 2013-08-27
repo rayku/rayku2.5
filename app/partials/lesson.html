@@ -1,27 +1,21 @@
 <div class="row content-header">
-    <h3><span><i class="icon-edit"></i></span><span class="text"> Sum of Vectors: Algebraic Vectors</span></h3>
+    <h3><span><i class="icon-edit"></i></span><span class="text"> {{data.title}} : {{ lesson.name }}</span></h3>
 </div>
 <div class="row" id="content">
     <div class="row chapter-row">
         <div class="large-9 columns chapter-summary">
-            <h3><a ng-click="lesson()">Lesson</a> <a  ng-click="solution()">Solution</a></h3>
-            <!--<div class="lesson-video" ng-bind-html-unsafe="lesson.body"></div>-->
+            <h3>Lessons | <a ng-href="{{data.body.lesson_assignment_file}}">Assignment</a> | <a ng-href="#/course/{{course.id}}/solution/{{data.url}}/1">Solutions</a></h3>
             <div class="lesson-video">
                 <iframe
-                src="http://www.youtube.com/embed/{{video}}">
+                src="http://www.youtube.com/embed/{{lesson.lesson_video}}">
                 </iframe>
             </div>
         </div>
 
         <div class="large-3 columns courses">
-            <h3><a href="{{lesson_assignment_file}}">Download</a> <a href="">Hand In</a></h3>
+            <h3><a ng-href="{{data.body.lesson_assignment_file}}">Download Assignment</a></h3>
             <ul>
-                <li><a href=# ><span>Intro to Algebraic Vectors</span></a></li>
-                <li><a href=# ><span>Algebraic Vectors Example 1</span></a></li>
-                <li><a href=# ><span>Algebraic Vectors Example 2</span></a></li>
-                <li><a href=# ><span>Factoring Vectors</span></a></li>
-                <li><a href=# ><span>Scaling Vectors</span></a></li>
-                <li><a href=# ><span>Parametric Representations</span></a></li>
+                <li ng-repeat="lesson in lessons"><a href="#/course/{{course.id}}/lesson/{{data.url}}/{{$index+1}}"><span>{{lesson.name}}</span></a></li>
             </ul>
         </div>
     </div>

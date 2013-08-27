@@ -4,15 +4,16 @@
 <div class="row" id="content">
     <div class="row chapter-row">
         <div class="large-9 columns chapter-summary">
-            <h3><a ng-href="#/course/{{course.id}}/lesson/{{data.url}}">Lesson</a> | <a ng-href="{{lesson_assignment_file}}">Assignment</a> | Assignment Solutions</h3>
+            <h3><a ng-href="#/course/{{course.id}}/lesson/{{data.url}}/1">Lessons</a> | <a ng-href="{{lesson_assignment_file}}">Assignment</a> | Solutions</h3>
             <div class="lesson-video">
                 <iframe
-                src="http://www.youtube.com/embed/{{solution_video}}">
+                src="http://www.youtube.com/embed/{{solution.solution_video}}">
                 </iframe>
             </div>
         </div>
 
         <div class="large-3 columns courses">
+            <h3><a ng-href="{{data.body.lesson_assignment_file}}">Download Assignment</a></h3>
             <ul>
                 <li ng-repeat="solution in solutions"><a href="#/course/{{course.id}}/solution/{{data.url}}/{{$index+1}}"><span>{{solution.name}}</span></a></li>
             </ul>
