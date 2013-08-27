@@ -73,7 +73,6 @@ app.controller('LessonViewCtrl', function($http, $scope, userProvider, $routePar
       
       if($routeParams.lessonId !== undefined){
       	$scope.video = data.body.lesson_videos[$routeParams.lessonId-1];
-      	console.log($scope.video);
       	$scope.videos = data.body.lesson_videos;
       }
       
@@ -94,11 +93,11 @@ app.controller('LessonViewCtrl', function($http, $scope, userProvider, $routePar
     $http.get('https://canvas.rayku.com/api/v1/courses/'+$routeParams.courseId+'/modules').success(function(data){
       $scope.modules = data;
       for(var i = 0; i < data.length; i++){
-    	if(data[i].state == "started"){
-    	  $scope.unit = data[i];
-    	  $location.path('/course/'+$routeParams.courseId+'/unit/'+data[i].id);
-    	  break;
-    	}
+        if(data[i].state == "started"){
+          $scope.unit = data[i];
+          $location.path('/course/'+$routeParams.courseId+'/unit/'+data[i].id);
+          break;
+        }
       }
     })
   })
