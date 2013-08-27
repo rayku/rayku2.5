@@ -50,6 +50,9 @@ app.factory('userProvider', function($q, $http, $location){
           window.location = "logreg.html";
         }
       }).then(function(Obj){
+    	if(Obj.data.length == 0){
+    	  window.location = "logreg.html";
+    	}
 	    user = Obj.data[0];
         deferred.resolve(user);
       });
