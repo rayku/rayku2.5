@@ -1,19 +1,19 @@
 <div class="row content-header">
-    <h3><span><i class="icon-edit"></i></span><span class="text"> Sum of Vectors: Algebraic Vectors</span></h3>
+    <h3><span><i class="icon-edit"></i></span><span class="text"> {{data.title}}</span></h3>
 </div>
 <div class="row" id="content">
     <div class="row chapter-row">
         <div class="large-12 columns chapter-summary">
-            <h3><a ng-click="lesson()">Lesson</a> | <a ng-href="{{lesson_assignment_file}}">Assignment</a> | <a  ng-click="solution()">Assignment Solutions</a></h3>
-            <!--<div class="lesson-video" ng-bind-html-unsafe="lesson.body"></div>-->
+            <h3>Lesson | <a ng-href="{{data.body.lesson_assignment_file}}">Assignment</a> | <a ng-href="#/course/{{course.id}}/solution/{{data.url}}/1">Assignment Solutions</a></h3>
             <div class="lesson-video">
                 <iframe
-                src="http://www.youtube.com/embed/{{video}}">
+                src="http://www.youtube.com/embed/{{ lesson.body.lesson_video}}">
                 </iframe>
             </div>
         </div>
     </div>
     
+    <!-- 
     <div class="ro  w program-row">
         <div class="large-9 columns program-tutoring checklist">
             <h3><i class="icon-check-sign"></i> Checklist</h3>
@@ -43,4 +43,5 @@
             </div>
         </div>
     </div>
+     -->
 </div>

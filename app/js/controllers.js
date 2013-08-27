@@ -17,6 +17,7 @@ var app = angular.module('myApp', []).config(['$httpProvider' , '$routeProvider'
   $routeProvider.when('/course/:courseId', {templateUrl: 'partials/course.html'});
   $routeProvider.when('/course/:courseId/unit/:moduleId', {templateUrl: 'partials/course.html', controller: 'UnitViewCtrl'});
   $routeProvider.when('/course/:courseId/lesson/:moduleId', {templateUrl: 'partials/lesson.html', controller: 'LessonViewCtrl'});
+  $routeProvider.when('/course/:courseId/solution/:moduleId/:solutionId', {templateUrl: 'partials/solution.html', controller: 'LessonViewCtrl'});
   $routeProvider.otherwise({redirectTo: '/course'});
 }]);
 
@@ -61,24 +62,14 @@ app.factory('userProvider', function($q, $http){
 
 app.controller('LessonViewCtrl', function($http, $scope, userProvider, $routeParams){
   userProvider.getUser().then(function(user){
-    $http.get('https://canvas.rayku.com/api/v1/courses/1/pages/'+$routeParams.moduleId).success(function(data){
+    $http.get('https://canvas.rayku.com/api/v1/courses/'+$routeParams.courseId+'/pages/'+$routeParams.moduleId).success(function(data){
       data.body = JSON.parse(data.body.match(/<p>(.*?)<\/p>/)[1]);
-      console.log(data);
-      //set lesson to data returned
-      $scope.video = data.body.lesson_video;
-      $scope.lesson_assignment_file = data.body.assignment_file_url;
-
-      //Switch to lesson video
-      $scope.lesson = function () {
-        console.log('Lesson was clicked');
-        $scope.video = data.body.lesson_video;
+      $scope.data = data;
+      if($routeParams.solutionId !== 'undefined'){
+    	$scope.solution = data.body.solution_videos[$routeParams.solutionId-1];
+    	$scope.solutions = data.body.solution_videos;
       }
-
-      //Switch to solution video
-      $scope.solution = function () {
-        console.log('Solution was clicked');
-        $scope.video = data.body.solution_video;
-      }
+      $scope.course = {'id': $routeParams.courseId};
     })
   })
 }).controller('ProfileCtrl', function($http, $scope, userProvider){
@@ -107,7 +98,6 @@ app.controller('LessonViewCtrl', function($http, $scope, userProvider, $routePar
   userProvider.getUser().then(function(user){
     $http.get('https://canvas.rayku.com/api/v1/courses/'+$routeParams.courseId+'/modules/'+$routeParams.moduleId+'/items').success(function(data){
 	  $scope.chapters = data;
-	  console.log(data);
 	})
   })
 });
