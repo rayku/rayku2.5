@@ -16,7 +16,7 @@ var app = angular.module('myApp', []).config(['$httpProvider' , '$routeProvider'
   
   $routeProvider.when('/course/:courseId', {templateUrl: 'partials/course.html'});
   $routeProvider.when('/course/:courseId/unit/:moduleId', {templateUrl: 'partials/course.html', controller: 'UnitViewCtrl'});
-  $routeProvider.when('/course/:courseId/lesson/:moduleId', {templateUrl: 'partials/lesson.html', controller: 'LessonViewCtrl'});
+  $routeProvider.when('/course/:courseId/lesson/:moduleId/:lessonId', {templateUrl: 'partials/lesson.html', controller: 'LessonViewCtrl'});
   $routeProvider.when('/course/:courseId/solution/:moduleId/:solutionId', {templateUrl: 'partials/solution.html', controller: 'LessonViewCtrl'});
   $routeProvider.otherwise({redirectTo: '/course'});
 }]);
@@ -68,6 +68,10 @@ app.controller('LessonViewCtrl', function($http, $scope, userProvider, $routePar
       if($routeParams.solutionId !== 'undefined'){
     	$scope.solution = data.body.solution_videos[$routeParams.solutionId-1];
     	$scope.solutions = data.body.solution_videos;
+      }
+      if($routeParams.lessonId !== 'undefined'){
+      	$scope.lesson = data.body.lesson_videos[$routeParams.lessonId-1];
+      	$scope.lessons = data.body.lesson_videos;
       }
       $scope.course = {'id': $routeParams.courseId};
     })
