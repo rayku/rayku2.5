@@ -1,14 +1,5 @@
 'use strict';
 
-/**
- * https://canvas.rayku.com/api/v1/courses/ - get my courses
- * https://canvas.rayku.com/api/v1/courses/1/modules/ - get the modules for A course
- * https://canvas.rayku.com/api/v1/courses/1/modules/2/items - get the items in A module for A course
- * https://canvas.rayku.com/api/v1/courses/1/pages/module-1-lesson-1 - get the page
- */
-
-
-
 var app = angular.module('myApp', []).config(['$httpProvider' , '$routeProvider', function($httpProvider, $routeProvider) {
   delete $httpProvider.defaults.headers.common["X-Requested-With"];
   $httpProvider.defaults.withCredentials = true;
@@ -64,7 +55,7 @@ app.factory('userProvider', function($q, $http, $location){
   };
   
   return {
-	getUser : getUser
+    getUser : getUser
   };
 });
 
