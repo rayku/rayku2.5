@@ -1,0 +1,60 @@
+<link rel="stylesheet" href="css/logreg.css"/>
+
+<div class="row" ng-cloak>
+    <div class="large-6 columns login">
+        <form>
+            <h3>Login</h3>
+            <div class="row">
+                  <div class="large-12 columns">
+                        <label for="username">Username</label>
+                        <input name="username" id="username" ng-required="true" ng-model="user.username" type="text" placeholder="Email or Username">
+                  </div>
+            </div>
+            <div class="row">
+                  <div class="large-12 columns">
+                        <label for="password">Password</label>
+                        <input name="password" id="password" ng-required="true" ng-model="user.password" type="password" placeholder="Password">
+                  </div>
+            </div>
+            <div class="row">
+                  <div class="large-12 columns">
+                        <input type="submit" value="Login" class="red-button" ng-click="login(user)">
+                  </div>
+            </div>
+        </form>
+    </div>
+    <div class="large-6 columns registration">
+        <form>
+            <h3>Register</h3>
+            <div class="row">
+                  <div class="large-12 columns">
+                        <label>Username</label>
+                        <input type="text" placeholder="Email or Username">
+                  </div>
+            </div>
+            <div class="row">
+                  <div class="large-12 columns">
+                        <label>Email</label>
+                        <input type="text" placeholder="Email">
+                  </div>
+            </div>
+            <div class="row">
+                  <div class="large-12 columns">
+                        <label>Password</label>
+                        <input type="password" placeholder="Password">
+                  </div>
+            </div>
+            <div class="row">
+                  <div class="large-12 columns">
+                        <label>Confirm Password</label>
+                        <input type="password" placeholder="Password">
+                  </div>
+            </div>
+            <div class="row">
+                  <div class="large-12 columns">
+                        <input type="submit" value="Register" class="blue-button">
+                  </div>
+            </div>
+        </form>
+    </div>
+</div>

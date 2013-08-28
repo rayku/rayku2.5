@@ -9,6 +9,7 @@ var app = angular.module('myApp', []).config(['$httpProvider' , '$routeProvider'
   $routeProvider.when('/course/:courseId/unit/:moduleId', {templateUrl: 'partials/course.html', controller: 'UnitViewCtrl'});
   $routeProvider.when('/course/:courseId/lesson/:moduleId/:lessonId', {templateUrl: 'partials/lesson.html', controller: 'LessonViewCtrl'});
   $routeProvider.when('/course/:courseId/solution/:moduleId/:solutionId', {templateUrl: 'partials/lesson.html', controller: 'LessonViewCtrl'});
+  $routeProvider.when('/login', {templateUrl: 'partials/login.html', controller: 'LoginCtrl'});
   $routeProvider.otherwise({redirectTo: '/course'});
 }]);
 
@@ -38,11 +39,11 @@ app.factory('userProvider', function($q, $http, $location){
 	if(!user){
       $http.get('https://canvas.rayku.com/api/v1/accounts/1/logins', {cache:true}).error(function(Obj){
         if(Obj.status == "unauthenticated"){
-          window.location = "logreg.html";
+          $location.path('/login');
         }
       }).then(function(Obj){
     	if(Obj.data.length == 0){
-    	  window.location = "logreg.html";
+    	  $location.path('/login');
     	}
 	    user = Obj.data[0];
         deferred.resolve(user);
@@ -58,7 +59,22 @@ app.factory('userProvider', function($q, $http, $location){
   };
 });
 
-app.controller('LessonViewCtrl', function($http, $scope, userProvider, $routeParams){
+app.controller('LoginCtrl', function($http, $scope, $location){
+  $http.get('https://canvas.rayku.com/api/v1/accounts/1/logins').success(function($data){
+	$location.path('/course/1');
+  });
+  
+  $scope.login = function(user){
+	var login_form = $.param({
+	  'pseudonym_session[unique_id]': user.username,
+	  'pseudonym_session[password]' : user.password
+	});
+	
+	$http.post('https://canvas.rayku.com/login?nonldap=true', login_form, { headers: {'Content-Type': 'application/x-www-form-urlencoded'} }).success(function($data){
+	  $location.path('/course/1');
+	});
+  }
+}).controller('LessonViewCtrl', function($http, $scope, userProvider, $routeParams){
   userProvider.getUser().then(function(user){
     $http.get('https://canvas.rayku.com/api/v1/courses/'+$routeParams.courseId+'/pages/'+$routeParams.moduleId).success(function(data){
       data.body = JSON.parse(data.body.match(/<p>(.*?)<\/p>/)[1]);
