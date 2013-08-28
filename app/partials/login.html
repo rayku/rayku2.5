@@ -7,18 +7,18 @@
             <div class="row">
                   <div class="large-12 columns">
                         <label for="username">Username</label>
-                        <input name="username" id="username" ng-required="true" ng-model="user.username" type="text" placeholder="Email or Username">
+                        <input name="username" id="username" ng-required="true" ng-model="user_login.username" type="text" placeholder="Email">
                   </div>
             </div>
             <div class="row">
                   <div class="large-12 columns">
                         <label for="password">Password</label>
-                        <input name="password" id="password" ng-required="true" ng-model="user.password" type="password" placeholder="Password">
+                        <input name="password" id="password" ng-required="true" ng-model="user_login.password" type="password" placeholder="Password">
                   </div>
             </div>
             <div class="row">
                   <div class="large-12 columns">
-                        <input type="submit" value="Login" class="red-button" ng-click="login(user)">
+                        <input type="submit" value="Login" class="red-button" ng-click="login(user_login)">
                   </div>
             </div>
         </form>
@@ -28,31 +28,37 @@
             <h3>Register</h3>
             <div class="row">
                   <div class="large-12 columns">
-                        <label>Username</label>
-                        <input type="text" placeholder="Email or Username">
+                        <label for="username">Username</label>
+                        <input name="username" id="username" ng-required="true" ng-model="user_register.username" type="text" placeholder="Username">
                   </div>
             </div>
             <div class="row">
                   <div class="large-12 columns">
-                        <label>Email</label>
-                        <input type="text" placeholder="Email">
+                        <label for="fname">Full Name</label>
+                        <input name="fname" id="fname" ng-required="true" ng-model="user_register.fname" type="text" placeholder="Full Name">
                   </div>
             </div>
             <div class="row">
                   <div class="large-12 columns">
-                        <label>Password</label>
-                        <input type="password" placeholder="Password">
+                        <label for="email">Email</label>
+                        <input name="email" id="email" ng-required="true" ng-model="user_register.email" type="email" placeholder="Email">
                   </div>
             </div>
             <div class="row">
                   <div class="large-12 columns">
-                        <label>Confirm Password</label>
-                        <input type="password" placeholder="Password">
+                        <label for="password">Password</label>
+                        <input name="password" id="password" ng-required="true" ng-model="user_register.password1" type="password" placeholder="Password">
                   </div>
             </div>
             <div class="row">
                   <div class="large-12 columns">
-                        <input type="submit" value="Register" class="blue-button">
+                        <label for="password2">Confirm Password</label>
+                        <input name="password2" id="password2" ng-required="true" ng-model="user_register.password2" type="password" placeholder="Password">
+                  </div>
+            </div>
+            <div class="row">
+                  <div class="large-12 columns">
+                        <input type="submit" value="Register" class="blue-button" ng-click="register(user_register)">
                   </div>
             </div>
         </form>

@@ -73,7 +73,25 @@ app.controller('LoginCtrl', function($http, $scope, $location){
 	$http.post('https://canvas.rayku.com/login?nonldap=true', login_form, { headers: {'Content-Type': 'application/x-www-form-urlencoded'} }).success(function($data){
 	  $location.path('/course/1');
 	});
-  }
+  };
+  
+  $scope.register = function(user){
+	var register_form = $.param({
+	  'user[self_enrollment_code]' : '6EXD4B' ,
+	  'user[name]' : user.fname ,
+	  'pseudonym[unique_id]' : user.email ,
+	  'pseudonym[password]' : user.password1 ,
+	  'pseudonym[password_confirmation]' : user.password2 ,
+	  'user[terms_of_use]' : 1 ,
+	  'user[initial_enrollment_type]' : 'student' ,
+	  'self_enrolment' : 'username',
+	  '_method': 'post'
+	})
+	
+	$http.post('https://canvas.rayku.com/users', register_form, { headers: {'Content-Type': 'application/x-www-form-urlencoded'} }).success(function($data){
+	  console.log($data);
+	});
+  };
 }).controller('LessonViewCtrl', function($http, $scope, userProvider, $routeParams){
   userProvider.getUser().then(function(user){
     $http.get('https://canvas.rayku.com/api/v1/courses/'+$routeParams.courseId+'/pages/'+$routeParams.moduleId).success(function(data){
