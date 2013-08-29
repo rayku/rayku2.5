@@ -2,6 +2,7 @@
 
 var app = angular.module('myApp', []).config(['$httpProvider' , '$routeProvider', function($httpProvider, $routeProvider) {
   delete $httpProvider.defaults.headers.common["X-Requested-With"];
+  $httpProvider.defaults.useXDomain = true;
   $httpProvider.defaults.withCredentials = true;
   $httpProvider.interceptors.push('httpInterceptor');
   
@@ -38,7 +39,7 @@ app.factory('userProvider', function($q, $http, $location){
   var getUser = function() {
 	var deferred = $q.defer();
 	if(!user){
-      $http.get('https://canvas.rayku.com/api/v1/accounts/1/logins', {cache:true}).error(function(Obj){
+      $http.get(domain+'/api/v1/accounts/1/logins', {cache:true}).error(function(Obj){
         if(Obj.status == "unauthenticated"){
           $location.path('/login');
         }
@@ -61,7 +62,7 @@ app.factory('userProvider', function($q, $http, $location){
 });
 
 app.controller('LoginCtrl', function($http, $scope, $location){
-  $http.get('https://canvas.rayku.com/api/v1/accounts/1/logins').success(function($data){
+  $http.get(domain+'/api/v1/accounts/1/logins').success(function($data){
 	$location.path('/course/1');
   });
   
@@ -71,31 +72,46 @@ app.controller('LoginCtrl', function($http, $scope, $location){
 	  'pseudonym_session[password]' : user.password
 	});
 	
-	$http.post('https://canvas.rayku.com/login?nonldap=true', login_form, { headers: {'Content-Type': 'application/x-www-form-urlencoded'} }).success(function($data){
+	$http.post(domain+'/login?nonldap=true', login_form, { headers: {'Content-Type': 'application/x-www-form-urlencoded'} }).success(function($data){
 	  $location.path('/course/1');
 	});
   };
   
+  // This function is yucky
   $scope.register = function(user){
 	var register_form = $.param({
-	  'user[self_enrollment_code]' : '6EXD4B' ,
 	  'user[name]' : user.fname ,
 	  'pseudonym[unique_id]' : user.email ,
-	  'pseudonym[password]' : user.password1 ,
-	  'pseudonym[password_confirmation]' : user.password2 ,
-	  'user[terms_of_use]' : 1 ,
-	  'user[initial_enrollment_type]' : 'student' ,
-	  'self_enrolment' : 'username',
-	  '_method': 'post'
-	})
+	  'pseudonym[password]' : user.password
+	});
 	
-	$http.post('https://canvas.rayku.com/users', register_form, { headers: {'Content-Type': 'application/x-www-form-urlencoded'} }).success(function($data){
-	  console.log($data);
+	// Register
+	$http.post(domain+'/api/v1/accounts/1/users?access_token=XEs3w4Ar8trTwaK60go0J7AnYUhZYmHbiCCqNW2IuGYjBOOetlF4yfdcQ2d1CIdn', register_form, {headers: {
+	  'Content-Type': 'application/x-www-form-urlencoded'
+    }}).success(function($data){
+      var login_form = $.param({
+	    'pseudonym_session[unique_id]': user.email,
+	    'pseudonym_session[password]' : user.password
+	  });
+	
+      // Login
+	  $http.post(domain+'/login?nonldap=true', login_form, { headers: {'Content-Type': 'application/x-www-form-urlencoded'} }).success(function($data){
+	    var enrolment = $.param({
+	      'enrollment[user_id]' : $data.pseudonym.user_id,
+	      'enrollment[type]' : 'StudentEnrollment',
+	      'enrollment[enrollment_state]' : 'active',
+	    });
+	    
+	    // Enroll
+	    $http.post(domain+'/api/v1/courses/1/enrollments?access_token=XEs3w4Ar8trTwaK60go0J7AnYUhZYmHbiCCqNW2IuGYjBOOetlF4yfdcQ2d1CIdn', enrolment, { headers: {'Content-Type': 'application/x-www-form-urlencoded'} }).success(function(){
+	      $location.path('/course/1');
+	    });
+	  });
 	});
   };
 }).controller('LessonViewCtrl', function($http, $scope, userProvider, $routeParams){
   userProvider.getUser().then(function(user){
-    $http.get('https://canvas.rayku.com/api/v1/courses/'+$routeParams.courseId+'/pages/'+$routeParams.moduleId).success(function(data){
+    $http.get(domain+'/api/v1/courses/'+$routeParams.courseId+'/pages/'+$routeParams.moduleId).success(function(data){
       data.body = JSON.parse(data.body.match(/<p>(.*?)<\/p>/)[1]);
       $scope.data = data;
       
@@ -110,20 +126,25 @@ app.controller('LoginCtrl', function($http, $scope, $location){
       }
       
       $scope.course = {'id': $routeParams.courseId};
-    })
+    });
+    
+    /*$http.post(domain+'/api/v1/courses', {'blah': 'blah'}).success(function(){
+      console.log('hello world');
+    })*/
   })
 }).controller('ProfileCtrl', function($http, $scope, userProvider){
+  console.log('profile controller');
   userProvider.getUser().then(function(user){
-    $http.get('https://canvas.rayku.com/api/v1/users/'+user.user_id+'/profile').success(function(data){
+    $http.get(domain+'/api/v1/users/'+user.user_id+'/profile').success(function(data){
       $scope.user = data;
     })
   })
 }).controller('CourseViewCtrl', function($http, $scope, userProvider, $routeParams, $location){
   userProvider.getUser().then(function(user){
-    $http.get('https://canvas.rayku.com/api/v1/courses/'+$routeParams.courseId).success(function(data){
+    $http.get(domain+'/api/v1/courses/'+$routeParams.courseId).success(function(data){
       $scope.course = data;
     });
-    $http.get('https://canvas.rayku.com/api/v1/courses/'+$routeParams.courseId+'/modules').success(function(data){
+    $http.get(domain+'/api/v1/courses/'+$routeParams.courseId+'/modules').success(function(data){
       $scope.modules = data;
       for(var i = 0; i < data.length; i++){
         if(data[i].state == "started"){
@@ -136,7 +157,7 @@ app.controller('LoginCtrl', function($http, $scope, $location){
   })
 }).controller('UnitViewCtrl', function($http, $scope, userProvider, $routeParams){
   userProvider.getUser().then(function(user){
-    $http.get('https://canvas.rayku.com/api/v1/courses/'+$routeParams.courseId+'/modules/'+$routeParams.moduleId+'/items').success(function(data){
+    $http.get(domain+'/api/v1/courses/'+$routeParams.courseId+'/modules/'+$routeParams.moduleId+'/items').success(function(data){
 	  $scope.chapters = data;
 	})
   })

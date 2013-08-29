@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="css/app3.css"/>
     <link rel="stylesheet" href="css/app2.css"/>
     <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+    <script src="js/environment.js"></script>
 </head>
 <body>
 
@@ -21,16 +22,7 @@
 	    	
 	        <nav ng-controller="ProfileCtrl" ng-cloak>
 	        	<ul class="navigation">
-				<li>
-	        	<a href=# class="logged-in-as"><span class="logged-in-as-name" ng-cloak>{{ user.name }}</span></a>  
-	           
-	            <div class="submenu" id="submenu">
-                    <ul class="submenu-item">
-                        <li><a class="setting" href="#">Profile</a><br><span class="nav-desc">Edit your profile</span></li>
-                        <li><a class="logout" href="#">Logout</a></li>
-                    </ul>
-                </div>
-                </li>
+				    <li><span class="logged-in-as-name">{{ user.name }}</span></li>
             	</ul>
 	        </nav>
 	        

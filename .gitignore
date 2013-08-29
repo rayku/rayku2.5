@@ -1,2 +1,4 @@
 logs/*
 !.gitkeep
+.project
+app/js/environment.js
