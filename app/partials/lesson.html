@@ -13,40 +13,8 @@
         <div class="large-3 columns courses">
             <h3><a ng-href="{{data.body.lesson_assignment_file}}">Download Assignment</a></h3>
             <ul>
-                <li ng-repeat="vid in videos"><a href="#/course/{{course.id}}/solution/{{data.url}}/{{$index+1}}"><span>{{vid.name}}</span></a></li>
+                <li ng-repeat="vid in videos"><a href="#/course/{{course.id}}/{{type}}/{{data.url}}/{{$index+1}}"><span>{{vid.name}}</span></a></li>
             </ul>
         </div>
     </div>
-    
-    <!-- 
-    <div class="ro  w program-row">
-        <div class="large-9 columns program-tutoring checklist">
-            <h3><i class="icon-check-sign"></i> Checklist</h3>
-            <ul class="program">
-                <li>
-                    <a href=""><span class="check"><i class="icon-check"></i></span> Download Exercise</a>
-                </li>
-                <li>
-                   <a href=""><span class="check"><i class="icon-check"></i></span> Submit Exercise</a>
-                </li>
-                <li>
-                    <a href=""><span class="check"><i class="icon-check"></i></span> Wait for a Tutor</a>
-                </li>
-                <li>
-                    <a href="">Revise Corrections</a>
-                </li>
-                <li>
-                    <a href="">Complete</a>
-                </li>
-            </ul>
-        </div>
-
-        <div class="large-3 columns program-tutoring checklist">
-            <h3><i class="icon-signal"></i> Status</h3>
-            <div class="status-percentage">
-                <h5>40%</h5>
-            </div>
-        </div>
-    </div>
-     -->
 </div>
