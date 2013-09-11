@@ -57,47 +57,25 @@
         <div class="large-3 columns courses" ng-cloak>
             <h3><i class="icon-folder-open"> </i>{{ course.name }}</h3>
             <ul>
-                <li ng-repeat="module in modules"><a href="/course/{{ course.id }}/unit/{{ module.id}}" >Chapter {{ $index+1 }}: <span>{{ module.name}}</span></a></li>
+                <li ng-repeat="module in modules"><a href="#/course/{{ course.id }}/unit/{{ module.id}}" >Chapter {{ $index+1 }}: <span>{{ module.name}}</span></a></li>
             </ul>
         </div>
     </div>
-    
-    <!-- 
+
     <div class="row program-row">
         <div class="large-9 columns program-tutoring">
             <h3><i class="icon-user"></i> Program Tutoring</h3>
             <ul class="program">
                 <li>
                     <ul class="course-tutoring">
-                        <li>Tutoring Session with <a href=#>Sarah Miller</a></li>
-                        <li>August 5th at 6:30pm</li>
-                        <li><a href=#>Join Live</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <ul class="course-tutoring">
-                        <li>Tutoring Session with <a href=#>Sarah Miller</a></li>
-                        <li>August 5th at 6:30pm</li>
-                        <li><a href=#>Join Live</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <ul class="course-tutoring">
-                        <li>Tutoring Session with <a href=#>Sarah Miller</a></li>
-                        <li>August 5th at 6:30pm</li>
-                        <li><a href=#>Join Live</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <ul class="course-tutoring">
-                        <li>Tutoring Session with <a href=#>Sarah Miller</a></li>
-                        <li>August 5th at 6:30pm</li>
-                        <li><a href=#>Join Live</a></li>
+                        <li>Tutoring Session with Monica Smith</li>
+                        <li>September 10th <span style="color:#900;font-weight:bold;">NOW LIVE</span></li>
+                        <li><a href="http://whiteboard.rayku.com/room/907/broadcast/user/1437" target="_blank">Join Now</a></li>
                     </ul>
                 </li>
             </ul>
         </div>
-        <div class="large-3 columns program-principal">
+        <!--<div class="large-3 columns program-principal">
             <div class="row">
                 <div class="small-4 columns">
                     <img src="img/users/d9e696b111adaf5aebb5c8ee13e2512c217d6508.jpeg">
@@ -122,7 +100,7 @@
                     </ul>
                 </div> 
             </div>
-        </div>
-    </div> -->
+        </div>-->
+    </div> 
 </div>
 </span>

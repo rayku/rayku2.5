@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8">
+    <title>Online Math Tutoring with Rayku @Home Math Center</title>
+
+    <!-- Set the viewport width to device width for mobile -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Included CSS Files -->
+    <link href='http://fonts.googleapis.com/css?family=Italianno' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Dr+Sugiyama' rel='stylesheet' type='text/css'>
+    <link href="css/foundation.css" rel="stylesheet" type="text/css" />
+    <link href="css/stylesheet.css" rel="stylesheet" type="text/css" />
+    <link href="css/survey.css" rel="stylesheet" type="text/css" />
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Bad+Script' rel='stylesheet' type='text/css'>
+
+    <!-- Included JS Files -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="js/survey.js"></script>
+
+    <!-- IE Fix for HTML5 Tags -->
+    <!--[if lt IE 9]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-43424552-1', 'rayku.com');
+      ga('send', 'pageview');
+
+    </script>
+    </head>
+    <body>
+<!-- ClickTale Top part -->
+<script type="text/javascript">
+var WRInitTime=(new Date()).getTime();
+</script>
+<!-- ClickTale end of Top part -->
+<div class="container">
+      <header id="header">
+    <div class="row">
+          <div class="large-5 columns logo">
+        <h3 style="font-size:20px;"><img src="img/logo.png" width="79px" height="46px" style="margin-right:8px;">@Home Math Center<sup style="font-size:10px;">TM</sup></h3>
+      </div>
+          <div class="large-5 large-offset-2 columns button-hold"><a data-reveal-id="registerModal" class="signup-button" style="margin-left:50px;float:right;">Sign Up Today</a> <span style="line-height:40px;"><a href="http://rayku.com/login" target="_blank">Login</a></span> </div>
+        </div>
+  </header>
+      <section id="banner">
+    <div class="banner-area"> <img src="img/children.jpg"> </div>
+  </section>
+      <section id="banner-overlay">
+    <div class="row">
+          <div class="large-6 columns"><img src="img/seewhat.png" style="position:absolute;left:10%;margin-top:50px;width:500px;"></div>
+          <div class="large-6 overlay-text columns" style="width:500px;">
+        <div id="questions">
+              <div id="question1">
+            <p>Answer <span class="blue">3 short questions</span> to see what Rayku tutoring can do to improve your child's math grade.</p>
+            <p>School year:
+                  <select name="act_school_year" act="true">
+                <option value="9">grade 6</option>
+                <option value="9">grade 7</option>
+                <option value="9">grade 8</option>
+                <option value="9">grade 9</option>
+                <option value="10">grade 10</option>
+                <option value="11">grade 11</option>
+                <option value="11">grade 12</option>
+              </select>
+                  <input type="hidden" name="school_year" value="" />
+                </p>
+            <p><a class="continue-button" id="continue1">CONTINUE</a></p>
+          </div>
+              <div id="question2" class="hide">
+            <p>My child is currently getting a
+                  <select name="act_child_get" act="true">
+                <option value="D-">D-</option>
+                <option value="D">D</option>
+                <option value="D+">D+</option>
+                <option value="C-">C-</option>
+                <option value="C">C</option>
+                <option value="C+">C+</option>
+                <option value="B-">B-</option>
+                <option value="B">B</option>
+                <option value="B+">B+</option>
+                <option value="A-">A-</option>
+                <option value="A">A</option>
+              </select>
+                  <input type="hidden" name="child_get" value=""/>
+                  in their math class, and is trying to get to
+                  <select name="act_child_want" act="true">
+                <option value="D">D</option>
+                <option value="D+">D+</option>
+                <option value="C-">C-</option>
+                <option value="C">C</option>
+                <option value="C+">C+</option>
+                <option value="B-">B-</option>
+                <option value="B">B</option>
+                <option value="B+">B+</option>
+                <option value="A-">A-</option>
+                <option value="A">A</option>
+                <option value="A+">A+</option>
+              </select>
+                  <input type="hidden" name="child_want" value=""/>
+                </p>
+            <p><a class="continue-button" id="continue2">CONTINUE</a><a class="back-button" id="back2">BACK</a></p>
+          </div>
+              <div id="question3" class="hide">
+            <p>My child can commit up to
+                  <select name="act_child_commit" act="true">
+                <option value="1">1 hour</option>
+                <option value="2.5">2.5 hours</option>
+                <option value="5">5 hours</option>
+              </select>
+                  <input type="hidden" name="child_commit" value=""/>
+                  per week for tutoring.</p>
+            <p><a class="continue-button" id="continue3">FINISH</a><a class="back-button" id="back3">BACK</a></p>
+          </div>
+              <div id="results" class="hide">
+            <h4>With Rayku Tutoring, take your child from</h4>
+            <h5><span id="show_child_get">B-</span> to <span id="show_child_want">B+</span> in <span id="show_time">3 months</span>*</h5>
+            <p class="info">Rayku takes a scientific approach to help your child improve their grades, <em>or your money back</em>.</p>
+            <p class="info">Try Rayku @Home Math Center<sup style="font-size:10px">TM</sup> <strong>for free for the first 10 days</strong>, and begin improving your child's math grade.</p>
+            <p style="margin-top:25px;"><a data-reveal-id="registerModal" class="signup-button">Start Today</a> &nbsp;&nbsp;&nbsp;<a class="learn-more-button" id="learnmore" href="#marketing">Learn More</a></p>
+          </div>
+            </div>
+        <div id="disclaimer">
+              <p>*This is a preliminary assessment based on limited variables, and should be used for
+            informational purposes only. A full assessment will be done by a Rayku tutor.</p>
+            </div>
+      </div>
+        </div>
+  </section>
+      <section id="banner-overlay-logos">
+    <div class="row">
+          <div class="large-12 columns">
+        <ul id="bottom-banners">
+              <li class="hide"> <img src="img/bottom-banners/kangaroo.png" > <span>Kangaroo Math Contest is using Rayku’s online tutoring classroom to deliver online sessions to 3000 students across Canada.</span> </li>
+              <li class="active"> <img src="img/bottom-banners/ryerson.png" > <span>Rayku’s online tutoring classroom is used by Ryerson University to help incoming Engineering students prepare for first year math.</span> </li>
+            </ul>
+      </div>
+        </div>
+  </section>
+      <section id="marketing">
+    <div class="row our-features">
+          <h2 style="color: rgba(10, 10, 10, 0.8);font-weight: 200;text-align:center;padding:20px 0">A Tutoring Program That <em>Gets Better Results</em></h2>
+          <div class="large-3 columns feature" style="margin-right:10px">
+        <h3><img src="img/tutor-icon.png" style="height:100px;padding:0"><br>
+        World-Class Tutoring</h3>
+        <p>10 hours per month of live online math tutoring with a world-class tutor.</p>
+      </div>
+          <div class="large-3 columns feature" style="margin-right:10px">
+        <h3><img src="img/material-icon.png" style="height:100px;padding:0"><br>
+        Tailored Courses</h3>
+        <p>24/7 access to a resource library that is specifically tailored to your child.</p>
+      </div>
+          <div class="large-3 columns feature feature-center" style="margin-right:10px">
+          <h3><img src="img/marked-icon.png" style="height:100px;padding:0"><br>
+          Graded Exercises</h3>
+        <p>Exercises are sent, graded, and explained by your child's live tutor to ensure proper practice & assessment.</p>
+      </div>
+          <div class="large-3 columns feature">
+        <h3><img src="img/assessment-icon.png" style="height:100px;padding:0"><br>
+        Regular Assessments</h3>
+        <p>Assessments are made by a Rayku principal to confirm that your child is seeing tangible results.</p>
+      </div>
+        </div>
+            <section id="testimonial">
+          <div class="large-12 columns description">
+          <h2 style="font-size:30px;">Rayku improves your child's math grade, <em>guaranteed</em>. &nbsp;&nbsp; <a data-reveal-id="loginModal" class="signup-button">Learn More</a></h2>
+      </div>
+        </section>
+  </section>
+      <section id="testament"> </section>
+      <section id="tests" style="height:525px;">
+    <div class="row" style="padding:30px 0">
+          <div class="large-2 columns test-image"> <img src="http://www.rayku.com/bundles/raykupage/images/prf_3.png"> </div>
+          <div class="large-10 columns test-text">
+        <p>"I must say that the current system is pretty neat, I enjoyed playing around with all the features and the Latex integration is truly quite nice. The interface is really smooth and sleek which I like. The ease of use is wonderful."</p>
+        <h5>Pratheek Nagaraj, MIT, NASA</h5>
+      </div>
+        </div>
+    <div class="row" style="padding:10px 0 0 0">
+          <div class="large-2 columns test-image"> <img src="http://www.rayku.com/bundles/raykupage/images/sarah-icon.png"> </div>
+          <div class="large-10 columns test-text">
+        <p>"My son got in touch with a Yale math major who helped him understand a math problem that neither of us could figure out. This is a crucial year for him, and Rayku.com is one way for me to support his efforts."</p>
+        <h5>Sarah Ming, Parent, Kingston New York</h5>
+      </div>
+        </div>
+    <div align="center"> <img src="img/media.jpg" style="height:125px;"> </div>
+  </section>
+      <section id="subscription">
+    <div class="subscription-overlay">
+          <div style="width:1000px;margin:auto">
+        <h3>Get Started Today For Free<br>
+              <em style="font-size:20px;color:#CCC">Start with a 10-day free trial.</em></h3>
+        <div class="row">
+              <div class="large-4 columns pricing first">
+            <h6>1-Month<br>
+                  <span>$149</span></h6>
+            <ul>
+                  <li><i class="icon-check-sign"></i> &nbsp;<strong>10-day no-risk free trial</strong></li>
+                  <li><i class="icon-check-sign"></i> &nbsp;In-depth academic assessment</li>
+                  <li><i class="icon-check-sign"></i> &nbsp;24/7 access to lecture videos</li>
+                  <li><i class="icon-check-sign"></i> &nbsp;Exercise marking, with video solutions</li>
+                  <li><i class="icon-check-sign"></i> &nbsp;10 hours of live tutoring</li>
+                  <li><i class="icon-check-sign"></i> &nbsp;1 hour of progress consultation</li>
+                  <li><i class="icon-check-sign"></i> &nbsp;Monthly progress reports</li>
+                  <li><i class="icon-check-sign"></i> &nbsp;Results guaranteed or money back</li>
+                </ul>
+            <a class="signup-button" data-reveal-id="registerModal">Get Started Today</a> </div>
+              <div class="large-4 columns pricing second">
+            <h6>4-Month Semester<br>
+                  <span>$396<em> ($99/month)</em></span></h6>
+            <!--<h5><center>Back to school promotion for first 20 students</center></h5>-->
+            <ul>
+                  <li><i class="icon-check-sign"></i> &nbsp;<strong>10-day no-risk free trial</strong></li>
+                  <li><i class="icon-check-sign"></i> &nbsp;In-depth academic assessment</li>
+                  <li><i class="icon-check-sign"></i> &nbsp;24/7 access to lecture videos</li>
+                  <li><i class="icon-check-sign"></i> &nbsp;Exercise marking, with video solutions</li>
+                  <li><i class="icon-check-sign"></i> &nbsp;40 hours of live tutoring</li>
+                  <li><i class="icon-check-sign"></i> &nbsp;4 hours of progress consultation</li>
+                  <li><i class="icon-check-sign"></i> &nbsp;Monthly progress reports</li>
+                  <li><i class="icon-check-sign"></i> &nbsp;Results guaranteed or money back</li>
+                </ul>
+            <a class="signup-button" data-reveal-id="registerModal">Get Started Today</a> </div>
+            </div>
+      </div>
+        </div>
+  </section>
+    </div>
+<footer id="footer">
+      <div class="row">
+    <div class="large-12 columns" style="padding-top:50px;padding-bottom:20px;">
+          <p>Copyright © 2013 Rayku. All rights reserved. | Questions? 1-888-98RAYKU.</p>
+        </div>
+  </div>
+    </footer>
+<div id="loginModal" class="reveal-modal medium" style="width:800px;">
+      <div class="row login-body">
+    <div class="large-12 columns" style="font-size:15px;line-height:20px;">
+          <div style="width:720px;height:80px;box-shadow:0 0 5px #C00;margin-bottom:30px;">
+        <div style="padding:20px 20px;margin:10px 10px 0 0;float:left;width:150px;background:#C00;color:#FFF;font-size:20px;">The Problem</div>
+        <div style="padding:20px 10px;float:left;width:550px;">
+              <p>Students struggle with improving their grades because they have not been properly taught the <strong>fundamental principles of math</strong> from previous grades.</p>
+            </div>
+        <div style="clear:all"></div>
+      </div>
+          <p>Rayku's program tutoring takes a scientific approach that is catered to your child's unique learning blueprint - all built around world-class tutors.</p>
+          <img src="img/screen.jpg" style="height:200px;margin-right:30px;float:left;">
+          <div style="height:250px;">
+        <h2 style="font-size:28px;font-weight:normal;">Tailored Resources</h2>
+        <p>Lesson plans are tailored to your child, and consumed during their own time or with a live tutor.<br>
+              <br>
+              <strong>Regular assessments and a feedback cycle</strong> ensures that your child fundamentally grasps concepts, before they are introduced to more advanced topics.</p>
+      </div>
+          <img src="img/screen2.jpg" style="height:200px;margin-left:30px;float:right;">
+          <div style="height:250px;">
+        <h2 style="font-size:28px;font-weight:normal;">Smart Live Tutoring</h2>
+        <p>Rayku tutoring is done in your home, using our proprietary online classroom.<br>
+              <br>
+              This allows you to <strong>book flexible hours</strong> that fit your child's schedule, and allows us to monitor engagement and give constructive feedback.</p>
+      </div>
+          <p style="color:#999"><img src="img/ryerson.jpg" style="margin-right:30px;float:left;height:50px;"><em>Rayku's whiteboard tutoring technology is used by Ryerson University to help incoming Engineering students prepare for first year University math.</em></p>
+          <p style="text-align:center;font-size:18px;margin-top:60px;">Your child improves their grade, or your money back.&nbsp;&nbsp; <a data-reveal-id="registerModal" class="signup-button">Get Started Today</a></p>
+        </div>
+  </div>
+      <a class="close-reveal-modal">&#215;</a> </div>
+<div id="registerModal" class="reveal-modal small">
+      <div class="row">
+    <center>
+          <img src="img/signup.jpg">
+        </center>
+  </div>
+      <div class="row register-body">
+    <div class="large-12 columns">
+          <form class="custom" method="post" action="mail.php">
+        <div class="row">
+              <label>Name*</label>
+              <input type="text" name="name">
+            </div>
+        <div class="row">
+              <label>Email*</label>
+              <input type="text" name="email">
+            </div>
+        <div class="row">
+              <label>Phone Number*</label>
+              <input type="text" name="phone">
+            </div>
+        <div class="row">
+              <label>School Grade of your Child*</label>
+              <input type="text" name="grade">
+            </div>
+        <div class="row register-area">
+              <style>
+					input[type="submit"]{
+						outline: :none;
+						border:none;
+						padding: 10px;
+						border-bottom: 2px solid rgba(61, 152, 225,1);
+						border-radius: 3px;
+					}
+					</style>
+              <input type="submit" class="signup-button" value="Sign Up">
+              <p style="line-height:20px;"><br>
+            Questions? You can call us at any time at 1-888-987-2958.</p>
+            </div>
+      </form>
+        </div>
+  </div>
+      <a class="close-reveal-modal">&#215;</a> </div>
+<script type="text/javascript">
+setTimeout(function(){var a=document.createElement("script");
+var b=document.getElementsByTagName("script")[0];
+a.src=document.location.protocol+"//dnn506yrbagrg.cloudfront.net/pages/scripts/0003/8331.js?"+Math.floor(new Date().getTime()/3600000);
+a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
+</script> 
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular.min.js"></script> 
+<script src="js/app.js"></script> 
+<script src="js/services.js"></script> 
+<script src="js/controllers.js"></script> 
+<script src="js/filters.js"></script> 
+<script src="js/directives.js"></script> 
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> 
+<script type="http://www.rayku.com/bundles/raykupage/js/script.js"></script> 
+<script>
+    document.write('<script src=' +
+    ('__proto__' in {} ? 'foundation/js/vendor/zepto' : 'foundation/js/vendor/jquery') +
+    '.js><\/script>')
+    </script> 
+<script src="foundation/js/foundation/foundation.js"></script> 
+<script src="foundation/js/foundation/foundation.alerts.js"></script> 
+<script src="foundation/js/foundation/foundation.clearing.js"></script> 
+<script src="foundation/js/foundation/foundation.cookie.js"></script> 
+<script src="foundation/js/foundation/foundation.dropdown.js"></script> 
+<script src="foundation/js/foundation/foundation.forms.js"></script> 
+<script src="foundation/js/foundation/foundation.joyride.js"></script> 
+<script src="foundation/js/foundation/foundation.magellan.js"></script> 
+<script src="foundation/js/foundation/foundation.orbit.js"></script> 
+<script src="foundation/js/foundation/foundation.placeholder.js"></script> 
+<script src="foundation/js/foundation/foundation.reveal.js"></script> 
+<script src="foundation/js/foundation/foundation.section.js"></script> 
+<script src="foundation/js/foundation/foundation.tooltips.js"></script> 
+<script src="foundation/js/foundation/foundation.topbar.js"></script> 
+<script>
+        $(document).foundation();
+    </script> 
+<!-- ClickTale Bottom part -->
+
+<script type='text/javascript'>
+// The ClickTale Balkan Tracking Code may be programmatically customized using hooks:
+// 
+//   function ClickTalePreRecordingHook() { /* place your customized code here */  }
+//
+// For details about ClickTale hooks, please consult the wiki page http://wiki.clicktale.com/Article/Customizing_code_version_2
+
+document.write(unescape("%3Cscript%20src='"+
+(document.location.protocol=='https:'?
+"https://clicktalecdn.sslcs.cdngc.net/www07/ptc/e8d33456-8bc5-4579-9eec-8d74f4110b65.js":
+"http://cdn.clicktale.net/www07/ptc/e8d33456-8bc5-4579-9eec-8d74f4110b65.js")+"'%20type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+<!-- ClickTale end of Bottom part -->
+</body>
+</html>
