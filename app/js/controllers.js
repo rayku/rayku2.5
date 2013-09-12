@@ -8,9 +8,10 @@ var app = angular.module('myApp', []).config(['$httpProvider' , '$routeProvider'
   
   $routeProvider.when('/course/:courseId', {templateUrl: 'partials/course.html'});
   $routeProvider.when('/course/:courseId/unit/:moduleId', {templateUrl: 'partials/course.html', controller: 'UnitViewCtrl'});
-  $routeProvider.when('/course/:courseId/lesson/:moduleId', {templateUrl: 'partials/lesson.html', controller: 'LessonViewCtrl'});
-  $routeProvider.when('/course/:courseId/lesson/:moduleId/:lessonId', {templateUrl: 'partials/lesson.html', controller: 'LessonViewCtrl'});
-  $routeProvider.when('/course/:courseId/solution/:moduleId/:solutionId', {templateUrl: 'partials/lesson.html', controller: 'LessonViewCtrl'});
+
+  $routeProvider.when('/course/:courseId/:type/:moduleId/:lessonId', {templateUrl: 'partials/lesson.html', controller: 'LessonViewCtrl'});
+  $routeProvider.when('/course/:courseId/:type/:moduleId/:solutionId', {templateUrl: 'partials/lesson.html', controller: 'LessonViewCtrl'});
+
   $routeProvider.when('/login', {templateUrl: 'partials/login.html', controller: 'LoginCtrl'});
   $routeProvider.otherwise({redirectTo: '/course'});
 }]);
@@ -114,23 +115,20 @@ app.controller('LoginCtrl', function($http, $scope, $location){
     $http.get(domain+'/api/v1/courses/'+$routeParams.courseId+'/pages/'+$routeParams.moduleId).success(function(data){
       data.body = JSON.parse(data.body.match(/<p>(.*?)<\/p>/)[1]);
       $scope.data = data;
+      $scope.type = $routeParams.type;
       
-      if($routeParams.solutionId !== undefined){
+      if($routeParams.type == 'solution'){
     	$scope.video = data.body.solution_videos[$routeParams.solutionId-1];
     	$scope.videos = data.body.solution_videos;
       }
       
-      if($routeParams.lessonId !== undefined){
+      if($routeParams.type == 'lesson'){
       	$scope.video = data.body.lesson_videos[$routeParams.lessonId-1];
       	$scope.videos = data.body.lesson_videos;
       }
       
       $scope.course = {'id': $routeParams.courseId};
     });
-    
-    /*$http.post(domain+'/api/v1/courses', {'blah': 'blah'}).success(function(){
-      console.log('hello world');
-    })*/
   })
 }).controller('ProfileCtrl', function($http, $scope, userProvider){
   console.log('profile controller');

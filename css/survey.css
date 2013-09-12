@@ -1,0 +1,135 @@
+.hide {
+    display: none;
+}
+
+h2#survey_title {
+    color: #fff;
+    font-size: 30px;
+    font-weight: normal;
+}
+
+#questions {
+    background: url('../img/surveybox.png') repeat top left;
+    color: #fff;
+    float: right;
+    padding: 20px;
+	margin-top:30px;
+    width: 420px;
+	height: 275px;
+}
+
+#disclaimer {
+    display: none;
+    color: #fff;
+    float: right;
+    margin-top: 10px;
+    padding: 0px;
+    width: 400px;
+}
+#disclaimer p {
+    font-size: 10px;
+    line-height: 1.5em;
+}
+
+#questions p {
+    line-height: 1.5em;
+}
+
+#questions select {
+    display: inline;
+    width: 150px;
+}
+
+#questions .blue {
+    color: #2692FF;
+}
+
+#questions .back-button {
+    background: #C0C0C0;
+    color: rgba(255, 255, 255, 1);
+    font-weight: bold;
+    padding: 5px 20px;
+    border-bottom: 2px solid #6F6F6F;
+    border-radius: 3px;
+    float: right;
+    margin-right: 5px;
+}
+
+#questions .start-button,
+#questions .continue-button {
+    background: rgba(85, 180, 238, 1);
+    color: rgba(255, 255, 255, 1);
+    font-weight: bold;
+    padding: 5px 20px;
+    border-bottom: 2px solid rgba(61, 152, 225, 1);
+    border-radius: 3px;
+    float: right;
+}
+
+#questions .start-button {
+    float: none !important;
+}
+
+#questions .learn-more-button {
+    color: #BFEFFF;
+    text-decoration: underline;
+}
+
+#questions #question2 select {
+    width: 60px;
+}
+
+#questions #question3 select {
+    width: 120px;
+}
+
+#questions #results h4 {
+    color: #fff;
+    font-size: 16px;
+    font-weight: normal;
+}
+
+#questions #results h5 {
+    color: #fff;
+    font-size: 38px;
+    font-weight: normal;
+	margin-top:10px;
+}
+
+#questions #results h5 #show_child_get {
+    color: #FF4C4C;
+}
+
+#questions #results h5 #show_child_want {
+    color: #2693FF;
+}
+
+#questions #results h5 #show_time {
+    color: #2693FF;
+}
+
+#questions #results p.info {
+    font-size: 14px;
+	line-height:16px;
+	margin-bottom:6px;
+}
+
+#bottom-banners li {
+    list-style-type: none;
+	font-size:20px;
+	line-height:24px;
+}
+
+#bottom-banners li img {
+    float: left;
+    display: block;
+    margin-right: 35px;
+	margin-top:5px;
+    width: 173px;
+}
+
+#bottom-banners li span {
+    color: #C9C9C9;
+    padding-top: 10px;
+    display: block;
+}

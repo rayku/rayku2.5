@@ -1,0 +1,355 @@
+
+html{
+    margin:0;
+    padding: 0;
+}
+body {
+  font-family: "HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 200;
+  color: rgba(100, 100, 100, 1);
+  margin:0;
+  padding: 0;
+  background: rgba(250, 250, 250, 1);
+  background: url('../img/cubes.png');
+  background-size: auto;
+}
+.container{
+}
+.red-button{
+  background: rgba(243, 107, 107, 1);
+  color: rgba(255, 255, 255, 1);
+  padding: 10px;
+  border-bottom: 2px solid rgba(195,88,65,1);
+  border-radius: 3px;
+}
+.blue-button{
+  background: rgba(85, 180, 238, 1); 
+  color: rgba(255, 255, 255, 1);
+  padding: 10px;
+  border-bottom: 2px solid rgba(61, 152, 225,1); 
+  border-radius: 3px;
+}
+
+/***********************
+Header
+************************/
+#header{
+  position: fixed;
+  top:0;
+  width: 100%;
+  height: 70px;
+  background:rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 10px rgba(10, 10, 10, 0.2);
+  padding: 20px;
+  padding-top: 15px;
+  z-index: 3;
+}
+.logo{
+
+}
+#header .button-hold{
+  padding: 0;
+}
+
+#header .button-hold a{
+  float: right;
+  margin-left: 10px;
+}
+#header .search input[type="text"]{
+  padding: 18px 10px;
+}
+#header .navigation ul{
+  list-style: none;
+  padding: 10px;
+}
+#header .navigation ul li{
+  display: inline;
+  margin-right: 15px;
+}
+#header .navigation ul li a{
+  color: rgba(10,10,10,0.7);
+}
+#header .navigation ul li a:hover{
+  text-decoration: underline;
+}
+
+/***********************
+profile
+************************/
+#profile{
+  position: relative;
+  top:70px;
+}
+#profile .profile-container{
+  background: rgba(255, 255, 255, 1);
+  padding: 10px ;
+  box-shadow: 0 0 10px rgba(10, 10, 10, 0.1);
+}
+#profile .profile-container .profile-image{
+    padding: 5px;
+    margin: 0;
+}
+#profile .profile-container .profile-image img{
+   
+}
+#profile .profile-container .profile-details{
+  margin-bottom: 95px;
+}
+#profile .profile-container .profile-details ul{
+    padding: 10px;
+    padding-bottom: 0;
+    list-style-type: none;
+}
+#profile .profile-container .profile-details ul li.vestee-name{
+  color: rgba(85, 180, 238, 1);
+  font-size: 30px; 
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+#profile .profile-container .profile-details ul li.vestee-name img{
+  margin-top: 15px;
+}
+
+#profile .profile-container .profile-details ul li.vestee-name a.blue-button{
+  font-size: 16px;
+  float: right;
+}
+#profile .profile-container .profile-details ul li.vestee-name img{
+  margin-left: -10px;
+  width: 100%;
+}
+#profile .profile-container .profile-details ul li.university span{
+  font-style: italic;
+}
+#profile .profile-container .profile-details ul li.desc p{
+  padding-top: 5px;
+  font-size: 14px;
+}
+#profile .profile-container .timeline{
+  margin-top: 15px;
+  margin-bottom: 25px;
+}
+/***********************
+profile wishlist
+************************/
+#profile .profile-container .wishlist h3, #profile .profile-container .exerciselist h3{
+  font-size: 20px; 
+  font-weight: 200;
+  border-bottom: 1px dashed rgba(221, 221, 221, 1);
+  padding: 5px 0;
+  color: rgba(85, 180, 238, 1);
+}
+#profile .profile-container .wishlist h3 a, #profile .profile-container .exerciselist h3 a{
+  color: rgba(10, 10, 10, 1);
+}
+#profile .profile-container .wishlist ul, #profile .profile-container .exerciselist ul{
+  list-style: none;
+}
+#profile .profile-container .wishlist ul li a, #profile .profile-container .exerciselist ul li a{
+  font-size: 14px;
+  color: rgba(10, 10, 10, 0.6);
+}
+#profile .profile-container .wishlist ul li a:hover, #profile .profile-container .exerciselist ul li a:hover{
+  text-decoration: underline;
+}
+/***********************
+profile calendar
+************************/
+/* app css stylesheet */
+#profile .profile-container .calendar h3{
+  color: rgba(85, 180, 238, 1);
+  font-size: 20px; 
+    font-weight: 200;
+    padding-bottom: 10px;
+    margin-bottom: 0;
+    border-bottom: 1px dashed rgba(221, 221, 221, 1);
+}
+#profile .profile-container .calendar ul{
+  list-style: none;
+}
+#profile .profile-container .calendar ul li{
+  float: left;
+  display: block;
+  width: 8.33%;
+}
+#profile .profile-container .calendar ul li:hover{
+  background: rgba(221, 221, 221, 0.2);
+}
+#profile .profile-container .calendar ul li a{
+  display: block;
+  text-align: center;
+  padding: 10px 0;
+
+}
+#profile .profile-container .calendar ul li.first-4 a{
+  color: rgba(229,115,8,1);
+  border-bottom: 2px solid rgba(229,115,8,1);
+}
+#profile .profile-container .calendar ul li.second-4 a{
+  color: rgba(11,114,195,1);
+  border-bottom: 2px solid rgba(11,114,195,1);
+}
+#profile .profile-container .calendar ul li.third-4 a{
+  color: rgba(10,10,10,0.4);
+  border-bottom: 2px solid rgba(10,10,10,0.4);
+}
+#profile .profile-container .calendar ul li.third-4.active a{
+  color: rgba(90,154,0,1);
+  border-bottom: 2px solid rgba(90,154,0,1);
+}
+
+/***********************
+profile user-about/exercise-video
+************************/
+.user-about{
+  margin-top: 25px;
+}
+.user-about.checklist{
+  margin-top: -15px;
+}
+.user-about h3, .exercise-video h3{
+  color: rgba(85, 180, 238, 1);
+  font-size: 20px; 
+    font-weight: 200;
+    padding-bottom: 10px;
+    margin-bottom: 0;
+    border-bottom: 1px dashed rgba(221, 221, 221, 1);
+}
+.user-about h4, .exercise-video h4{
+    color: rgba(10, 10, 10, 0.6);
+    font-size: 16px; 
+    font-weight: 200;
+    font-style: italic;
+}
+.user-about ul, .exercise-video ul{
+  list-style: none;
+  padding: 0;
+  margin-left: 0;
+}
+.user-about ul.course-outline > li, .exercise-video ul.course-outline > li{
+  border-bottom: 1px solid rgba(10, 10, 10, 0.1);
+  padding:10px 10px;
+  padding-bottom: 30px;
+}
+.exercise-video ul.course-outline > li:last-child{
+  padding: 0;
+}
+.user-about ul.course-outline.chapter > li:hover, .exercise-video ul.course-outline.chapter > li:hover{
+  background: rgba(221, 221, 221, 0.2);
+}
+.user-about ul.course-outline > li a, .exercise-video ul.course-outline > li a{
+  color: rgba(10, 10, 10, 0.6);
+}
+.user-about ul.course-exercise li, .exercise-video ul.course-exercise li{
+  font-size: 14px;
+  float: left;
+  display: block;
+  width: 25%;
+}
+.user-about ul.course-tutoring, .user-about ul.course-checklist{
+  width: 100%;
+  padding: 0;
+  margin-left: -10px;
+}
+.user-about ul.course-tutoring li{
+  font-size: 14px;
+  float: left;
+  display: block;
+  width: 25%;
+}
+.user-about ul.course-checklist li{
+  
+   font-size: 14px;
+  float: left;
+  display: block;
+  width: 20%;
+}
+.user-about ul.course-tutoring li a{
+  text-decoration: underline;
+}
+.user-about ul.course-tutoring li:first-child{
+  width: 50%;
+}
+.user-about p{
+  font-size: 13px;
+}
+
+.active{
+  background: rgba(221, 221, 221, 0.2);
+}
+
+#profile-footer{
+  position: relative;
+  top:70px;
+  background: rgba(38, 38, 38, 1);
+  border-top: 1px solid rgba(68, 68, 68, 1);
+}
+#profile-footer p{
+  padding: 20px 0;
+  padding-bottom: 0;
+  font-size: 13px;
+  font-weight: 400;
+  text-align: center;
+}
+#profile-footer p a:hover{
+  text-decoration: underline;
+}
+
+ul#nav{
+  position: absolute;
+  width: 165px;
+  z-index: 2;
+  list-style: none;
+}
+
+ul#nav a img{
+  width: 40px;
+}
+ul#submenu{
+  list-style-type: none;
+  box-shadow: 0 0 8px rgba(10, 10, 10, 0.2);
+  padding:3px 0px;
+  margin-left: 0;
+  width: 165px;
+}
+ul.submenu-item li{
+  width: 100%;
+  padding:5px 5px;
+  margin:0;
+}
+
+#lesson-video iframe{
+  width: 100%;
+  height: 500px;
+}
+.menu {
+  list-style: none;
+  border-bottom: 0.1em solid black;
+  margin-bottom: 2em;
+  padding: 0 0 0.5em;
+}
+
+.menu:before {
+  content: "[";
+}
+
+.menu:after {
+  content: "]";
+}
+
+.menu > li {
+  display: inline;
+}
+
+.menu > li:before {
+  content: "|";
+  padding-right: 0.3em;
+}
+
+.menu > li:nth-child(1):before {
+  content: "";
+  padding: 0;
+}
+
+
+
