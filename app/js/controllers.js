@@ -64,18 +64,18 @@ app.factory('userProvider', function($q, $http, $location){
 
 app.controller('LoginCtrl', function($http, $scope, $location){
   $http.get(domain+'/api/v1/accounts/1/logins').success(function($data){
-	$location.path('/course/1');
+	  $location.path('/course/1');
   });
   
   $scope.login = function(user){
-	var login_form = $.param({
-	  'pseudonym_session[unique_id]': user.username,
-	  'pseudonym_session[password]' : user.password
-	});
+  	var login_form = $.param({
+  	  'pseudonym_session[unique_id]': user.username,
+  	  'pseudonym_session[password]' : user.password
+  	});
 	
-	$http.post(domain+'/login?nonldap=true', login_form, { headers: {'Content-Type': 'application/x-www-form-urlencoded'} }).success(function($data){
-	  $location.path('/course/1');
-	});
+  	$http.post(domain+'/login?nonldap=true', login_form, { headers: {'Content-Type': 'application/x-www-form-urlencoded'} }).success(function($data){
+  	  $location.path('/course/1');
+  	});
   };
   
   // This function is yucky
