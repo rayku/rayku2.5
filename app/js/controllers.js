@@ -139,6 +139,7 @@ app.controller('LoginCtrl', function($http, $scope, $location){
   })
 }).controller('CourseViewCtrl', function($http, $scope, userProvider, $routeParams, $location){
   userProvider.getUser().then(function(user){
+	$scope.user = user;
     $http.get(domain+'/api/v1/courses/'+$routeParams.courseId).success(function(data){
       $scope.course = data;
     });

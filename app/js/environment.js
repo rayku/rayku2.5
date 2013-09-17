@@ -1,1 +1,1 @@
-var domain = 'https://canvas.rayku.com';
+var domain = 'https://dev.canvas.rayku.com';
