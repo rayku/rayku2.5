@@ -13,7 +13,7 @@ var app = angular.module('myApp', []).config(['$httpProvider' , '$routeProvider'
   $routeProvider.when('/course/:courseId/:type/:moduleId/:solutionId', {templateUrl: 'partials/lesson.html', controller: 'LessonViewCtrl'});
 
   $routeProvider.when('/login', {templateUrl: 'partials/login.html', controller: 'LoginCtrl'});
-  $routeProvider.otherwise({redirectTo: '/course'});
+  $routeProvider.otherwise({redirectTo: '/login'});
 }]);
 
 app.factory('httpInterceptor', function($q){
@@ -63,8 +63,14 @@ app.factory('userProvider', function($q, $http, $location){
 });
 
 app.controller('LoginCtrl', function($http, $scope, $location){
+  
+  function redirect_to_course(user){
+	$http.get(domain+'/api/v1/users/'+user.id+'/enrollments').success(function($data){
+	  $location.path('/course/'+$data[0].course_id);
+	});
+  }
   $http.get(domain+'/api/v1/accounts/1/logins').success(function($data){
-	  $location.path('/course/1');
+	redirect_to_course($data[0]);
   });
   
   $scope.login = function(user){
@@ -74,7 +80,7 @@ app.controller('LoginCtrl', function($http, $scope, $location){
   	});
 	
   	$http.post(domain+'/login?nonldap=true', login_form, { headers: {'Content-Type': 'application/x-www-form-urlencoded'} }).success(function($data){
-  	  $location.path('/course/1');
+  	  redirect_to_course($data.pseudonym);
   	});
   };
   
@@ -114,6 +120,7 @@ app.controller('LoginCtrl', function($http, $scope, $location){
   userProvider.getUser().then(function(user){
     $http.get(domain+'/api/v1/courses/'+$routeParams.courseId+'/pages/'+$routeParams.moduleId).success(function(data){
       data.body = JSON.parse(data.body.match(/<p>(.*?)<\/p>/)[1]);
+      console.log(data.body);
       $scope.data = data;
       $scope.type = $routeParams.type;
       
@@ -130,8 +137,7 @@ app.controller('LoginCtrl', function($http, $scope, $location){
       $scope.course = {'id': $routeParams.courseId};
     });
   })
-}).controller('ProfileCtrl', function($http, $scope, userProvider){
-  console.log('profile controller');
+}).controller('ProfileCtrl', function($http, $scope, userProvider, $location){
   userProvider.getUser().then(function(user){
     $http.get(domain+'/api/v1/users/'+user.user_id+'/profile').success(function(data){
       $scope.user = data;
