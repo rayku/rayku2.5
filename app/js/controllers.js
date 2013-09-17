@@ -120,7 +120,6 @@ app.controller('LoginCtrl', function($http, $scope, $location){
   userProvider.getUser().then(function(user){
     $http.get(domain+'/api/v1/courses/'+$routeParams.courseId+'/pages/'+$routeParams.moduleId).success(function(data){
       data.body = JSON.parse(data.body.match(/<p>(.*?)<\/p>/)[1]);
-      console.log(data.body);
       $scope.data = data;
       $scope.type = $routeParams.type;
       
@@ -164,6 +163,10 @@ app.controller('LoginCtrl', function($http, $scope, $location){
   userProvider.getUser().then(function(user){
     $http.get(domain+'/api/v1/courses/'+$routeParams.courseId+'/modules/'+$routeParams.moduleId+'/items').success(function(data){
 	  $scope.chapters = data;
-	})
+	});
+    
+    $http.get(domain+'/api/v1/courses/'+$routeParams.courseId+'/modules/'+$routeParams.moduleId).success(function(data){
+      $scope.unit = data;
+    });
   })
 });
