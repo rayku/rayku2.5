@@ -1,17 +1,17 @@
 <div class="row content-header">
-    <h3><span><i class="icon-edit"></i></span><span class="text"> {{data.title}} : {{ video.name }}</span><a href="#/course/{{ course.id }}" >Back Home</a></h3>
+    <h3><span><i class="icon-edit"></i></span><span class="text"> <strong>{{data.title}}:</strong> {{ video.name }}</span></h3>
 </div>
 <div class="row" id="content">
     <div class="row chapter-row">
         <div class="large-9 columns chapter-summary">
-            <h3><a ng-href="#/course/{{course.id}}/lesson/{{data.url}}/1">Lessons</a> | <a ng-href="{{data.body.assignment_file_url}}">Assignment</a> | <a ng-href="#/course/{{course.id}}/solution/{{data.url}}/1">Solutions</a></h3>
+            <h3><!--<a ng-href="#/course/{{course.id}}/lesson/{{data.url}}/1">Lesson Videos</a> | --><a ng-href="{{data.body.assignment_file_url}}" style="font-weight:bold">Download Assignment</a><!-- | <a ng-href="#/course/{{course.id}}/solution/{{data.url}}/1">Solutions</a>--> | <a href="#/course/{{ course.id }}">Back to Course Page</a></h3>
             <div class="lesson-video">
                 <iframe src="http://www.youtube.com/embed/{{video.video_url}}"></iframe>
             </div>
         </div>
 
         <div class="large-3 columns courses">
-            <h3><a ng-href="{{data.body.assignment_file_url}}">Download Assignment </a></h3>
+            <h3>Lesson Videos</h3>
             <ul>
                 <li ng-repeat="vid in videos"><a href="#/course/{{course.id}}/{{type}}/{{data.url}}/{{$index+1}}"><span>{{vid.name}}</span></a></li>
             </ul>

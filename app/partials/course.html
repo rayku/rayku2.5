@@ -25,13 +25,12 @@
     </div>//-->
     <div class="row chapter-row">
         <div class="large-9 columns chapter-summary">
-            <h3 ng-cloak><i class="icon-bookmark"></i> {{ unit.name }}</h3>
+            <h3 ng-cloak><i class="icon-bookmark"></i> Chapter {{ $index+1 }}: {{ unit.name }}</h3>
             <ul class="course-outline chapter">
                 <li ng-repeat="chapter in chapters" ng-show="chapter.indent == 0">
                     <a href="#/course/{{ course.id}}/lesson/{{chapter.page_url}}/1" ng-show="!chapter.locked_for_user">
                         <ul class="course-exercise">
                         <li>{{ chapter.title}}</li>
-                        <li>3rd of Aug</li>
                         <li>
                             <span ng-show="chapter.completion_requirement.completed">Done</span>
                             <span ng-show="!chapter.completion_requirement.completed">Pending</span>
@@ -42,7 +41,6 @@
                     <a ng-show="chapter.locked_for_user">
                         <ul class="course-exercise">
                         <li>{{ chapter.title}}</li>
-                        <li>3rd of Aug</li>
                         <li>
                             <span ng-show="chapter.completion_requirement.completed">Done</span>
                             <span ng-show="!chapter.completion_requirement.completed">Pending</span>
@@ -69,38 +67,25 @@
                 <li>
                     <ul class="course-tutoring">
                         <li>Tutoring Session with Monica Smith</li>
-                        <li>September 10th <span style="color:#900;font-weight:bold;">NOW LIVE</span></li>
-                        <li><a ng-cloak ng-href="http://whiteboard.rayku.com/room/907/broadcast/user/{{user.id}}" target="_blank">Join Now</a></li>
+                        <li><span style="color:#900;font-weight:bold;">NOW LIVE</span></li>
+                        <li><a ng-cloak ng-href="http://whiteboard.rayku.com/room/922/broadcast/user/{{user.id}}" target="_blank">Join Now</a></li>
                     </ul>
                 </li>
             </ul>
         </div>
-        <!--<div class="large-3 columns program-principal">
+        <div class="large-3 columns program-principal" style="margin-top:30px;">
             <div class="row">
                 <div class="small-4 columns">
-                    <img src="img/users/d9e696b111adaf5aebb5c8ee13e2512c217d6508.jpeg">
+                    <img src="http://i.minus.com/jBejN2rYghSEs.jpg">
                 </div> 
                 <div class="small-8 columns">
                     <ul>
-                        <li><a href=#>Sam Crow</a></li>
-                        <li>Charming Heights</li>
+                        <li style="font-size:18px;">Monica Smith, Tutor</li>
+                        <li><a href="mailto:monica@mail.rayku.com" style="font-size:13px;text-decoration:underline">Email Assignments to Monica</a></li>
                     </ul>
                 </div> 
             </div>
         </div>
-        <div class="large-3 columns program-tutor">
-            <div class="row">
-                <div class="small-4 columns">
-                    <img src="img/users/d9e696b111adaf5aebb5c8ee13e2512c217d6508.jpeg">
-                </div> 
-                <div class="small-8 columns">
-                    <ul>
-                        <li><a href=#>Jax Teller</a></li>
-                        <li>Oakland Borrow</li>
-                    </ul>
-                </div> 
-            </div>
-        </div>-->
     </div> 
 </div>
 </span>
